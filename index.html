@@ -112,12 +112,15 @@
         <h2 class="section-title">Sản Phẩm Của Chúng Tôi</h2>
         <p class="section-sub">Bấm nút &lsaquo; / &rsaquo;, chấm tròn hoặc ảnh nhỏ bên dưới để chuyển ảnh • Click tên sản phẩm để chọn phân loại</p>
 
-        <div class="products-grid">
+       <div class="products-grid">
             <!-- Sản phẩm 1: Lục Vị (ảnh 3, 4, 5, 6) -->
             <div class="card">
                 <div class="slider" data-product="lucvi">
                     <span class="img-counter">1 / 4</span>
-                    <img class="main-photo" src="3.jpg" alt="Diệu Hảo Thiền Trà Lục Vị">
+                    <img class="main-photo slide-img" src="3.jpg" alt="Combo Nến & Túi Thơm" style="display:block;">
+                    <img class="main-photo slide-img" src="4.jpg" alt="Set 5 Gói Dùng Chung" style="display:none;">
+                    <img class="main-photo slide-img" src="5.jpg" alt="15 Gói + 01 Túi Thơm" style="display:none;">
+                    <img class="main-photo slide-img" src="6.jpg" alt="15 Gói + Nến Thơm" style="display:none;">
                     <button type="button" class="slider-btn prev" aria-label="Ảnh trước">&#8249;</button>
                     <button type="button" class="slider-btn next" aria-label="Ảnh tiếp theo">&#8250;</button>
                     <div class="slider-dots">
@@ -148,7 +151,10 @@
             <div class="card">
                 <div class="slider" data-product="thientra">
                     <span class="img-counter">1 / 4</span>
-                    <img class="main-photo" src="7.jpg" alt="Diệu Hảo Thiền Trà">
+                    <img class="main-photo slide-img" src="7.jpg" alt="15 Gói + 01 Túi Thơm" style="display:block;">
+                    <img class="main-photo slide-img" src="8.jpg" alt="15 Gói + Nến Thơm" style="display:none;">
+                    <img class="main-photo slide-img" src="9.jpg" alt="15 Gói + Combo Nến & Túi Thơm" style="display:none;">
+                    <img class="main-photo slide-img" src="4.jpg" alt="Set 5 Gói Dùng Chung" style="display:none;">
                     <button type="button" class="slider-btn prev" aria-label="Ảnh trước">&#8249;</button>
                     <button type="button" class="slider-btn next" aria-label="Ảnh tiếp theo">&#8250;</button>
                     <div class="slider-dots">
@@ -206,6 +212,144 @@
         <p><strong>DIỆU HẢO THIỀN TRÀ</strong></p>
         <p>Chỉnh sửa thông tin liên hệ trực tiếp tại cuối file index.html</p>
     </footer>
+
+    <script>
+        (function() {
+            const galleries = {
+                lucvi: [
+                    { src: '3.jpg', label: 'Combo Nến & Túi Thơm' },
+                    { src: '4.jpg', label: 'Set 5 Gói Dùng Chung' },
+                    { src: '5.jpg', label: '15 Gói + 01 Túi Thơm' },
+                    { src: '6.jpg', label: '15 Gói + Nến Thơm' }
+                ],
+                thientra: [
+                    { src: '7.jpg', label: '15 Gói + 01 Túi Thơm' },
+                    { src: '8.jpg', label: '15 Gói + Nến Thơm' },
+                    { src: '9.jpg', label: '15 Gói + Combo Nến & Túi Thơm' },
+                    { src: '4.jpg', label: 'Set 5 Gói Dùng Chung' }
+                ]
+            };
+
+            const shopeeLinks = {
+                lucvi: 'https://shopee.vn/Tr%C3%A0-L%E1%BB%A5c-V%E1%BB%8B-D%C6%B0%E1%BB%A1ng-Nhan-d%C6%B0%E1%BB%A1ng-da-b%E1%BB%95-huy%E1%BA%BFt-n%E1%BB%99i-ti%E1%BA%BFt-(%C4%90%C3%B4ng-tr%C3%B9ng-h%E1%BA%A3o-t%C3%A1o-%C4%91%E1%BB%8F-k%E1%BB%B3-t%E1%BB%AD-hoa-nh%C3%A0i-hoa-c%C3%BAc-v%C3%A0ng-c%E1%BB%8F-ng%E1%BB%8Dt)-i.121955163.45153381029?extraParams=%7B%22display_model_id%22%3A380323199264%2C%22model_selection_logic%22%3A3%7D&image_ids=vn-11134207-81ztc-mpubje6dr8ct96',
+                thientra: 'https://shopee.vn'
+            };
+
+            const productNames = {
+                lucvi: 'Diệu Hảo Thiền Trà Lục Vị',
+                thientra: 'Diệu Hảo Thiền Trà'
+            };
+
+            document.querySelectorAll('.slider').forEach(function(slider) {
+                const key = slider.getAttribute('data-product');
+                const slideImgs = slider.querySelectorAll('.slide-img');
+                if (!slideImgs.length) return;
+
+                let currentIdx = 0;
+                const counterEl = slider.querySelector('.img-counter');
+                const dots = slider.querySelectorAll('.dot');
+                const prevBtn = slider.querySelector('.prev');
+                const nextBtn = slider.querySelector('.next');
+                const thumbs = document.querySelectorAll('[data-thumbs="' + key + '"] .thumb-btn');
+
+                function showImage(newIdx) {
+                    currentIdx = (newIdx + slideImgs.length) % slideImgs.length;
+                    slideImgs.forEach(function(img, i) {
+                        img.style.display = (i === currentIdx) ? 'block' : 'none';
+                    });
+                    if (counterEl) {
+                        counterEl.textContent = (currentIdx + 1) + ' / ' + slideImgs.length;
+                    }
+                    dots.forEach(function(dot, i) {
+                        dot.classList.toggle('active', i === currentIdx);
+                    });
+                    thumbs.forEach(function(thumb, i) {
+                        thumb.classList.toggle('active', i === currentIdx);
+                    });
+                }
+
+                prevBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    showImage(currentIdx - 1);
+                });
+
+                nextBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    showImage(currentIdx + 1);
+                });
+
+                dots.forEach(function(dot) {
+                    dot.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const idx = parseInt(dot.getAttribute('data-idx'), 10);
+                        if (!isNaN(idx)) showImage(idx);
+                    });
+                });
+
+                thumbs.forEach(function(thumb) {
+                    thumb.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const idx = parseInt(thumb.getAttribute('data-idx'), 10);
+                        if (!isNaN(idx)) showImage(idx);
+                    });
+                });
+            });
+
+            const modal = document.getElementById('productModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalImg = document.getElementById('modalImg');
+            const modalVariants = document.getElementById('modalVariants');
+            const modalShopee = document.getElementById('modalShopee');
+
+            function openModal(key) {
+                const items = galleries[key];
+                if (!items) return;
+                modalTitle.textContent = productNames[key] || '';
+                modalShopee.href = shopeeLinks[key] || 'https://shopee.vn';
+                modalVariants.innerHTML = '';
+
+                items.forEach(function(item, idx) {
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'var-btn' + (idx === 0 ? ' active' : '');
+                    btn.textContent = item.label;
+                    btn.addEventListener('click', function() {
+                        modalVariants.querySelectorAll('.var-btn').forEach(function(b) {
+                            b.classList.remove('active');
+                        });
+                        btn.classList.add('active');
+                        modalImg.src = item.src;
+                    });
+                    modalVariants.appendChild(btn);
+                });
+
+                modalImg.src = items[0].src;
+                modal.classList.add('open');
+            }
+
+            function closeModal() {
+                modal.classList.remove('open');
+            }
+
+            document.querySelectorAll('[data-open-modal]').forEach(function(el) {
+                el.addEventListener('click', function() {
+                    openModal(el.getAttribute('data-open-modal'));
+                });
+            });
+
+            document.getElementById('closeModalBtn').addEventListener('click', closeModal);
+            document.getElementById('modalContactBtn').addEventListener('click', closeModal);
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) closeModal();
+            });
+        })();
+    </script>
+
+</body>
+</html>
 
     <script>
         (function() {
