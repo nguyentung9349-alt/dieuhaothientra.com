@@ -51,7 +51,13 @@
         .dot.active { background: #fff; transform: scale(1.2); }
         .img-counter { position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.55); color: #fff; font-size: 0.8rem; padding: 3px 9px; border-radius: 12px; z-index: 20; }
 
-        .card-body { padding: 22px; }
+        /* Thanh ảnh thu nhỏ bấm chọn nhanh */
+        .thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; padding: 12px 22px 0; }
+        .thumb-btn { border: 2px solid transparent; border-radius: 8px; padding: 0; overflow: hidden; aspect-ratio: 1 / 1; cursor: pointer; background: #f3efe9; }
+        .thumb-btn.active { border-color: var(--primary); }
+        .thumb-btn img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .card-body { padding: 18px 22px 22px; }
         .card-title { font-size: 1.3rem; color: var(--primary); margin-bottom: 8px; cursor: pointer; }
         .card-title:hover { text-decoration: underline; }
         .card-desc { font-size: 0.95rem; color: #554d53; margin-bottom: 14px; }
@@ -86,7 +92,7 @@
         </a>
         <nav>
             <a href="#san-pham">Sản phẩm</a>
-            <a href="#cam-nang">Ebook Dưỡng Nhan</a>
+            <a href="#cam-nang">Ebook lật trang</a>
             <a href="#lien-he">Liên hệ</a>
         </nav>
     </header>
@@ -104,7 +110,7 @@
 
     <section id="san-pham">
         <h2 class="section-title">Sản Phẩm Của Chúng Tôi</h2>
-        <p class="section-sub">Bấm nút &lsaquo; / &rsaquo; hoặc chấm tròn để chuyển ảnh • Click tên sản phẩm để chọn phân loại</p>
+        <p class="section-sub">Bấm nút &lsaquo; / &rsaquo;, chấm tròn hoặc ảnh nhỏ bên dưới để chuyển ảnh • Click tên sản phẩm để chọn phân loại</p>
 
         <div class="products-grid">
             <!-- Sản phẩm 1: Lục Vị (ảnh 3, 4, 5, 6) -->
@@ -121,13 +127,19 @@
                         <button type="button" class="dot" data-idx="3" aria-label="Ảnh 4"></button>
                     </div>
                 </div>
+                <div class="thumbs" data-thumbs="lucvi">
+                    <button type="button" class="thumb-btn active" data-idx="0"><img src="3.jpg" alt="Ảnh 3"></button>
+                    <button type="button" class="thumb-btn" data-idx="1"><img src="4.jpg" alt="Ảnh 4"></button>
+                    <button type="button" class="thumb-btn" data-idx="2"><img src="5.jpg" alt="Ảnh 5"></button>
+                    <button type="button" class="thumb-btn" data-idx="3"><img src="6.jpg" alt="Ảnh 6"></button>
+                </div>
                 <div class="card-body">
                     <h3 class="card-title" data-open-modal="lucvi">Diệu Hảo Thiền Trà Lục Vị</h3>
                     <p class="card-desc">Gồm các lựa chọn túi 15 gói (150g), set 5 gói dùng chung cùng các ưu đãi tặng túi thơm hoặc nến thơm.</p>
                     <div class="price">Liên hệ / Cập nhật giá</div>
                     <div class="btn-group">
                         <button type="button" class="btn-fill" data-open-modal="lucvi">Chọn phân loại</button>
-                        <a href="https://shopee.vn/Tr%C3%A0-L%E1%BB%A5c-V%E1%BB%8B-D%C6%B0%E1%BB%A1ng-Nhan-d%C6%B0%E1%BB%A1ng-da-b%E1%BB%95-huy%E1%BA%BFt-n%E1%BB%99i-ti%E1%BA%BFt-(%C4%90%C3%B4ng-tr%C3%B9ng-h%E1%BA%A1-th%E1%BA%A3o-t%C3%A1o-%C4%91%E1%BB%8F-k%E1%BB%B3-t%E1%BB%AD-hoa-nh%C3%A0i-hoa-c%C3%BAc-v%C3%A0ng-c%E1%BB%8F-ng%E1%BB%8Dt)-i.121955163.45153381029?extraParams=%7B%22display_model_id%22%3A380323199264%2C%22model_selection_logic%22%3A3%7D&image_ids=vn-11134207-81ztc-mpubje6dr8ct96" target="_blank" class="btn-outline">Shopee</a>
+                        <a href="https://shopee.vn/Tr%C3%A0-L%E1%BB%A5c-V%E1%BB%8B-D%C6%B0%E1%BB%A1ng-Nhan-d%C6%B0%E1%BB%A1ng-da-b%E1%BB%95-huy%E1%BA%BFt-n%E1%BB%99i-ti%E1%BA%BFt-(%C4%90%C3%B4ng-tr%C3%B9ng-h%E1%BA%A3o-t%C3%A1o-%C4%91%E1%BB%8F-k%E1%BB%B3-t%E1%BB%AD-hoa-nh%C3%A0i-hoa-c%C3%BAc-v%C3%A0ng-c%E1%BB%8F-ng%E1%BB%8Dt)-i.121955163.45153381029?extraParams=%7B%22display_model_id%22%3A380323199264%2C%22model_selection_logic%22%3A3%7D&image_ids=vn-11134207-81ztc-mpubje6dr8ct96" target="_blank" class="btn-outline">Shopee</a>
                     </div>
                 </div>
             </div>
@@ -145,6 +157,12 @@
                         <button type="button" class="dot" data-idx="2" aria-label="Ảnh 3"></button>
                         <button type="button" class="dot" data-idx="3" aria-label="Ảnh 4"></button>
                     </div>
+                </div>
+                <div class="thumbs" data-thumbs="thientra">
+                    <button type="button" class="thumb-btn active" data-idx="0"><img src="7.jpg" alt="Ảnh 7"></button>
+                    <button type="button" class="thumb-btn" data-idx="1"><img src="8.jpg" alt="Ảnh 8"></button>
+                    <button type="button" class="thumb-btn" data-idx="2"><img src="9.jpg" alt="Ảnh 9"></button>
+                    <button type="button" class="thumb-btn" data-idx="3"><img src="4.jpg" alt="Ảnh 4"></button>
                 </div>
                 <div class="card-body">
                     <h3 class="card-title" data-open-modal="thientra">Diệu Hảo Thiền Trà</h3>
@@ -176,11 +194,11 @@
     </div>
 
     <section id="cam-nang">
-        <h2 class="section-title">Cẩm Nang 108 Công Thức Trà Dưỡng Nhan</h2>
-        
+        <h2 class="section-title">Ebook Lật Trang</h2>
+        <p class="section-sub">Đổi link bên trong thuộc tính src của iframe sang link sách lật trang của bạn</p>
 
         <div class="ebook-container">
-            <iframe class="flipbook-frame" src="https://heyzine.com/flip-book/7f04197388.html" allowfullscreen="allowfullscreen"></iframe>
+            <iframe class="flipbook-frame" src="https://heyzine.com/flip-book/373110d20b.html" allowfullscreen="allowfullscreen"></iframe>
         </div>
     </section>
 
@@ -191,10 +209,7 @@
 
     <script>
         (function() {
-           const shopeeLinks = {
-    lucvi: 'https://shopee.vn/Tr%C3%A0-L%E1%BB%A5c-V%E1%BB%8B-D%C6%B0%E1%BB%A1ng-Nhan-d%C6%B0%E1%BB%A1ng-da-b%E1%BB%95-huy%E1%BA%BFt-n%E1%BB%99i-ti%E1%BA%BFt-(%C4%90%C3%B4ng-tr%C3%B9ng-h%E1%BA%A3o-t%C3%A1o-%C4%91%E1%BB%8F-k%E1%BB%B3-t%E1%BB%AD-hoa-nh%C3%A0i-hoa-c%C3%BAc-v%C3%A0ng-c%E1%BB%8F-ng%E1%BB%8Dt)-i.121955163.45153381029?extraParams=%7B%22display_model_id%22%3A380323199264%2C%22model_selection_logic%22%3A3%7D&image_ids=vn-11134207-81ztc-mpubje6dr8ct96',
-    thientra: 'https://shopee.vn'
-};
+            const galleries = {
                 lucvi: [
                     { src: '3.jpg', label: 'Combo Nến & Túi Thơm' },
                     { src: '4.jpg', label: 'Set 5 Gói Dùng Chung' },
@@ -207,6 +222,11 @@
                     { src: '9.jpg', label: '15 Gói + Combo Nến & Túi Thơm' },
                     { src: '4.jpg', label: 'Set 5 Gói Dùng Chung' }
                 ]
+            };
+
+            const shopeeLinks = {
+                lucvi: 'https://shopee.vn/Tr%C3%A0-L%E1%BB%A5c-V%E1%BB%8B-D%C6%B0%E1%BB%A1ng-Nhan-d%C6%B0%E1%BB%A1ng-da-b%E1%BB%95-huy%E1%BA%BFt-n%E1%BB%99i-ti%E1%BA%BFt-(%C4%90%C3%B4ng-tr%C3%B9ng-h%E1%BA%A3o-t%C3%A1o-%C4%91%E1%BB%8F-k%E1%BB%B3-t%E1%BB%AD-hoa-nh%C3%A0i-hoa-c%C3%BAc-v%C3%A0ng-c%E1%BB%8F-ng%E1%BB%8Dt)-i.121955163.45153381029?extraParams=%7B%22display_model_id%22%3A380323199264%2C%22model_selection_logic%22%3A3%7D&image_ids=vn-11134207-81ztc-mpubje6dr8ct96',
+                thientra: 'https://shopee.vn'
             };
 
             const productNames = {
@@ -225,6 +245,7 @@
                 const dots = slider.querySelectorAll('.dot');
                 const prevBtn = slider.querySelector('.prev');
                 const nextBtn = slider.querySelector('.next');
+                const thumbs = document.querySelectorAll('[data-thumbs="' + key + '"] .thumb-btn');
 
                 function showImage(newIdx) {
                     currentIdx = (newIdx + items.length) % items.length;
@@ -235,6 +256,9 @@
                     }
                     dots.forEach(function(dot, i) {
                         dot.classList.toggle('active', i === currentIdx);
+                    });
+                    thumbs.forEach(function(thumb, i) {
+                        thumb.classList.toggle('active', i === currentIdx);
                     });
                 }
 
@@ -258,20 +282,27 @@
                         if (!isNaN(idx)) showImage(idx);
                     });
                 });
+
+                thumbs.forEach(function(thumb) {
+                    thumb.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const idx = parseInt(thumb.getAttribute('data-idx'), 10);
+                        if (!isNaN(idx)) showImage(idx);
+                    });
+                });
             });
 
             const modal = document.getElementById('productModal');
             const modalTitle = document.getElementById('modalTitle');
             const modalImg = document.getElementById('modalImg');
             const modalVariants = document.getElementById('modalVariants');
+            const modalShopee = document.getElementById('modalShopee');
 
-            function openModal(key) {const modalShopee = document.getElementById('modalShopee');
-if (modalShopee) {
-    modalShopee.href = shopeeLinks[key] || 'https://shopee.vn';
-}
+            function openModal(key) {
                 const items = galleries[key];
                 if (!items) return;
                 modalTitle.textContent = productNames[key] || '';
+                modalShopee.href = shopeeLinks[key] || 'https://shopee.vn';
                 modalVariants.innerHTML = '';
 
                 items.forEach(function(item, idx) {
@@ -283,4 +314,33 @@ if (modalShopee) {
                         modalVariants.querySelectorAll('.var-btn').forEach(function(b) {
                             b.classList.remove('active');
                         });
-                        btn
+                        btn.classList.add('active');
+                        modalImg.src = item.src;
+                    });
+                    modalVariants.appendChild(btn);
+                });
+
+                modalImg.src = items[0].src;
+                modal.classList.add('open');
+            }
+
+            function closeModal() {
+                modal.classList.remove('open');
+            }
+
+            document.querySelectorAll('[data-open-modal]').forEach(function(el) {
+                el.addEventListener('click', function() {
+                    openModal(el.getAttribute('data-open-modal'));
+                });
+            });
+
+            document.getElementById('closeModalBtn').addEventListener('click', closeModal);
+            document.getElementById('modalContactBtn').addEventListener('click', closeModal);
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) closeModal();
+            });
+        })();
+    </script>
+
+</body>
+</html>
