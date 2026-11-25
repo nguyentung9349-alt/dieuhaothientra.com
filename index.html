@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diệu Hảo Thiền Trà - Tinh Hoa Thảo Mộc Tự Nhiên</title>
+    <style>
+        :root {
+            --primary: #2d4c3e; /* Xanh rêu trầm */
+            --accent: #b8860b;  /* Vàng đồng sang trọng */
+            --bg: #faf8f5;      /* Nền kem giấy dó */
+            --text: #2c2c2c;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
+        
+        /* Thanh điều hướng */
+        header { background: #fff; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+        .logo { font-size: 1.4rem; font-weight: bold; color: var(--primary); letter-spacing: 1px; }
+        nav a { text-decoration: none; color: var(--text); margin-left: 20px; font-weight: 500; }
+        nav a:hover { color: var(--accent); }
+
+        /* Banner chính */
+        .hero { background: linear-gradient(rgba(45, 76, 62, 0.85), rgba(45, 76, 62, 0.85)), url('https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=1200&q=80') center/cover; color: #fff; text-align: center; padding: 90px 20px; }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 15px; }
+        .hero p { max-width: 650px; margin: 0 auto 25px; font-size: 1.1rem; opacity: 0.9; }
+        .btn { display: inline-block; padding: 12px 28px; background: var(--accent); color: #fff; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; border: none; cursor: pointer; }
+        .btn:hover { background: #9a7009; }
+
+        /* Khu vực chung */
+        section { padding: 60px 5%; max-width: 1200px; margin: auto; }
+        h2.section-title { text-align: center; color: var(--primary); font-size: 2rem; margin-bottom: 10px; }
+        p.section-sub { text-align: center; color: #666; margin-bottom: 40px; }
+
+        /* Lưới sản phẩm */
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .card { background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.06); display: flex; flex-direction: column; justify-content: space-between; }
+        .card img { width: 100%; height: 220px; object-fit: cover; }
+        .card-body { padding: 20px; }
+        .card-title { font-size: 1.25rem; color: var(--primary); margin-bottom: 8px; }
+        .card-desc { font-size: 0.95rem; color: #555; margin-bottom: 15px; }
+        .price { font-size: 1.2rem; font-weight: bold; color: var(--accent); margin-bottom: 15px; }
+        .btn-group { display: flex; gap: 10px; }
+        .btn-outline { background: transparent; border: 1px solid var(--primary); color: var(--primary); padding: 10px 15px; border-radius: 5px; text-decoration: none; font-size: 0.9rem; font-weight: 600; flex: 1; text-align: center; }
+        .btn-fill { background: var(--primary); color: #fff; padding: 10px 15px; border-radius: 5px; text-decoration: none; font-size: 0.9rem; font-weight: 600; flex: 1; text-align: center; }
+
+        /* Khu vực Ebook lật trang */
+        .ebook-container { background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); text-align: center; }
+        .flipbook-frame { width: 100%; height: 600px; border: 1px solid #e0e0e0; border-radius: 8px; }
+
+        /* Footer */
+        footer { background: var(--primary); color: #fff; text-align: center; padding: 30px 20px; margin-top: 40px; font-size: 0.95rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">DIỆU HẢO THIỀN TRÀ</div>
+        <nav>
+            <a href="#san-pham">Sản phẩm</a>
+            <a href="#cam-nang">Cẩm nang Trà</a>
+            <a href="#lien-he">Liên hệ</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Trà Thảo Mộc 100% Tự Nhiên</h1>
+        <p>Thanh lọc thân tâm từ những thảo mộc nguyên bản, minh bạch nguồn gốc, không hương liệu hóa học, không chất bảo quản.</p>
+        <a href="#san-pham" class="btn">Khám Phá Bộ Sưu Tập</a>
+    </div>
+
+    <section id="san-pham">
+        <h2 class="section-title">Sản Phẩm Tiêu Biểu</h2>
+        <p class="section-sub">Chọn dòng trà phù hợp với thể trạng và nhịp sống của bạn</p>
+        
+        <div class="products-grid">
+            <!-- Sản phẩm 1 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1597481499750-3e6b22637e12?auto=format&fit=crop&w=600&q=80" alt="Diệu Hảo Thiền Trà 11 Vị">
+                <div class="card-body">
+                    <h3 class="card-title">Diệu Hảo Thiền Trà (11 Vị)</h3>
+                    <p class="card-desc">Kết hợp 11 loại thảo mộc quý: táo đỏ, kỷ tử, đông trùng, hoa cúc vàng, long nhãn, hạt sen... giúp an thần, dưỡng nhan.</p>
+                    <div class="price">250.000đ / Hộp</div>
+                    <div class="btn-group">
+                        <a href="https://shopee.vn" target="_blank" class="btn-fill">Mua Shopee</a>
+                        <a href="https://tiktok.com" target="_blank" class="btn-outline">TikTok Shop</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sản phẩm 2 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1563911892437-1feda0179e1b?auto=format&fit=crop&w=600&q=80" alt="Diệu Hảo Thiền Trà Lục Vị">
+                <div class="card-body">
+                    <h3 class="card-title">Diệu Hảo Thiền Trà Lục Vị</h3>
+                    <p class="card-desc">Công thức 6 vị thanh nhẹ, hỗ trợ thanh nhiệt, giảm căng thẳng và cải thiện giấc ngủ sâu mỗi tối.</p>
+                    <div class="price">185.000đ / Hộp</div>
+                    <div class="btn-group">
+                        <a href="https://shopee.vn" target="_blank" class="btn-fill">Mua Shopee</a>
+                        <a href="https://tiktok.com" target="_blank" class="btn-outline">TikTok Shop</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sản phẩm 3 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1602928321679-560bb453f190?auto=format&fit=crop&w=600&q=80" alt="Nến Thơm & Túi Thơm Thảo Mộc">
+                <div class="card-body">
+                    <h3 class="card-title">Nến Thơm & Túi Thơm Organic</h3>
+                    <p class="card-desc">Sáp thực vật tự nhiên kết hợp tinh dầu hoa nhài, lá dứa và nụ hồng Đà Lạt tạo không gian thiền tĩnh tại.</p>
+                    <div class="price">160.000đ / Bộ</div>
+                    <div class="btn-group">
+                        <a href="https://shopee.vn" target="_blank" class="btn-fill">Mua Shopee</a>
+                        <a href="https://tiktok.com" target="_blank" class="btn-outline">TikTok Shop</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cam-nang">
+        <h2 class="section-title">Cẩm Nang 108 Công Thức Trà Dưỡng Nhan</h2>
+        <p class="section-sub">Lật từng trang sách trực tiếp bên dưới để khám phá nghệ thuật phối vị thảo mộc</p>
+        
+        <div class="ebook-container">
+            <!-- THAY LINK EBOOK CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
+            <iframe class="flipbook-frame" src="https://heyzine.com/flip-book/373110d20b.html" allowfullscreen="allowfullscreen"></iframe>
+        </div>
+    </section>
+
+    <footer id="lien-he">
+        <p><strong>CÔNG TY TNHH THƯƠNG MẠI VÀ TRUYỀN THÔNG LINA VIỆT NAM</strong></p>
+        <p>Website: www.linavn.com | Email: lienhe@linavn.com</p>
+    </footer>
+
+</body>
+</html>
