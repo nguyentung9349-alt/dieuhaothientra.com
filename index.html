@@ -61,10 +61,10 @@
         .thumb-btn.active { border-color: var(--primary); }
         .thumb-btn img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-        .card-body { padding: 18px 20px 22px; }
-        .card-title { font-size: 1.25rem; color: var(--primary); margin-bottom: 8px; cursor: pointer; }
+        .card-body { padding: 18px 20px 22px; display: flex; flex-direction: column; flex: 1; justify-content: space-between; }
+        .card-title { font-size: 1.25rem; color: var(--primary); margin-bottom: 10px; cursor: pointer; }
         .card-title:hover { text-decoration: underline; }
-        .card-desc { font-size: 0.94rem; color: #554d53; margin-bottom: 14px; }
+        .card-desc { font-size: 0.94rem; color: #554d53; margin-bottom: 16px; text-align: justify; }
         .price { font-size: 1.16rem; font-weight: 700; color: var(--accent); margin-bottom: 16px; }
         .btn-group { display: flex; gap: 10px; }
         .btn-fill { background: var(--primary); color: #fff; padding: 11px 14px; border-radius: 6px; text-decoration: none; font-size: 0.9rem; font-weight: 600; flex: 1; text-align: center; border: none; cursor: pointer; }
@@ -76,7 +76,8 @@
         .modal-box { background: #fff; max-width: 520px; width: 100%; border-radius: 14px; padding: 24px; position: relative; max-height: 90vh; overflow-y: auto; }
         .modal-close { position: absolute; top: 14px; right: 16px; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #444; }
         .modal-img { width: 100%; aspect-ratio: 1 / 1; max-height: 280px; object-fit: cover; border-radius: 10px; margin: 12px 0; }
-        .variants { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 18px; }
+        .variants-wrap { margin: 12px 0 18px; }
+        .variants { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
         .var-btn { padding: 8px 12px; border: 1px solid #ccc; background: #fff; border-radius: 6px; cursor: pointer; font-size: 0.88rem; }
         .var-btn.active { border-color: var(--primary); background: var(--primary); color: #fff; font-weight: 600; }
 
@@ -118,136 +119,160 @@
         <div class="products-grid">
             <!-- Sản phẩm 1: Lục Vị (ảnh 3, 4, 5, 6) -->
             <div class="card">
-                <div class="slider" data-product="lucvi">
-                    <span class="img-counter">1 / 4</span>
-                    <img class="main-photo slide-img" src="3.jpg" alt="Set 5 gói ngủ ngon" style="display:block;">
-                    <img class="main-photo slide-img" src="4.jpg" alt="Túi 15 gói" style="display:none;">
-                    <img class="main-photo slide-img" src="5.jpg" alt="Set 3 túi" style="display:none;">
-                    <img class="main-photo slide-img" src="6.jpg" alt="Set 4 túi" style="display:none;">
-                    <button type="button" class="slider-btn prev" aria-label="Ảnh trước">&#8249;</button>
-                    <button type="button" class="slider-btn next" aria-label="Ảnh tiếp theo">&#8250;</button>
-                    <div class="slider-dots">
-                        <button type="button" class="dot active" data-idx="0" aria-label="Ảnh 1"></button>
-                        <button type="button" class="dot" data-idx="1" aria-label="Ảnh 2"></button>
-                        <button type="button" class="dot" data-idx="2" aria-label="Ảnh 3"></button>
-                        <button type="button" class="dot" data-idx="3" aria-label="Ảnh 4"></button>
+                <div>
+                    <div class="slider" data-product="lucvi">
+                        <span class="img-counter">1 / 4</span>
+                        <img class="main-photo slide-img" src="3.jpg" alt="Diệu Hảo Thiền Trà Lục Vị 1" style="display:block;">
+                        <img class="main-photo slide-img" src="4.jpg" alt="Diệu Hảo Thiền Trà Lục Vị 2" style="display:none;">
+                        <img class="main-photo slide-img" src="5.jpg" alt="Diệu Hảo Thiền Trà Lục Vị 3" style="display:none;">
+                        <img class="main-photo slide-img" src="6.jpg" alt="Diệu Hảo Thiền Trà Lục Vị 4" style="display:none;">
+                        <button type="button" class="slider-btn prev" aria-label="Ảnh trước">&#8249;</button>
+                        <button type="button" class="slider-btn next" aria-label="Ảnh tiếp theo">&#8250;</button>
+                        <div class="slider-dots">
+                            <button type="button" class="dot active" data-idx="0" aria-label="Ảnh 1"></button>
+                            <button type="button" class="dot" data-idx="1" aria-label="Ảnh 2"></button>
+                            <button type="button" class="dot" data-idx="2" aria-label="Ảnh 3"></button>
+                            <button type="button" class="dot" data-idx="3" aria-label="Ảnh 4"></button>
+                        </div>
                     </div>
-                </div>
-                <div class="thumbs" data-thumbs="lucvi">
-                    <button type="button" class="thumb-btn active" data-idx="0"><img src="3.jpg" alt="Ảnh 3"></button>
-                    <button type="button" class="thumb-btn" data-idx="1"><img src="4.jpg" alt="Ảnh 4"></button>
-                    <button type="button" class="thumb-btn" data-idx="2"><img src="5.jpg" alt="Ảnh 5"></button>
-                    <button type="button" class="thumb-btn" data-idx="3"><img src="6.jpg" alt="Ảnh 6"></button>
-                </div>
-                <div class="card-body">
-                    <h3 class="card-title" data-open-modal="lucvi">Diệu Hảo Thiền Trà Lục Vị</h3>
-                    <p class="card-desc">Gồm các lựa chọn set 5 gói ngủ ngon (49k), túi 15 gói (159k), set 3 túi (389k) và set 4 túi (529k).</p>
-                    <div class="price">49.000đ – 529.000đ</div>
-                    <div class="btn-group">
-                        <button type="button" class="btn-fill" data-open-modal="lucvi">Chọn phân loại</button>
-                        <a href="https://shopee.vn/Tr%C3%A0-L%E1%BB%A5c-V%E1%BB%8B-D%C6%B0%E1%BB%A1ng-Nhan-d%C6%B0%E1%BB%A1ng-da-b%E1%BB%95-huy%E1%BA%BFt-n%E1%BB%99i-ti%E1%BA%BFt-(%C4%90%C3%B4ng-tr%C3%B9ng-h%E1%BA%A3o-t%C3%A1o-%C4%91%E1%BB%8F-k%E1%BB%B3-t%E1%BB%AD-hoa-nh%C3%A0i-hoa-c%C3%BAc-v%C3%A0ng-c%E1%BB%8F-ng%E1%BB%8Dt)-i.121955163.45153381029?extraParams=%7B%22display_model_id%22%3A380323199264%2C%22model_selection_logic%22%3A3%7D&image_ids=vn-11134207-81ztc-mpubje6dr8ct96" target="_blank" class="btn-outline">Shopee</a>
+                    <div class="thumbs" data-thumbs="lucvi">
+                        <button type="button" class="thumb-btn active" data-idx="0"><img src="3.jpg" alt="Ảnh 3"></button>
+                        <button type="button" class="thumb-btn" data-idx="1"><img src="4.jpg" alt="Ảnh 4"></button>
+                        <button type="button" class="thumb-btn" data-idx="2"><img src="5.jpg" alt="Ảnh 5"></button>
+                        <button type="button" class="thumb-btn" data-idx="3"><img src="6.jpg" alt="Ảnh 6"></button>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h3 class="card-title" data-open-modal="lucvi">Diệu Hảo Thiền Trà Lục Vị</h3>
+                            <p class="card-desc">Nếu bạn yêu thích hương trà tinh gọn nhưng giàu dưỡng chất, Diệu Hảo Thiền Trà Lục Vị là lựa chọn lý tưởng để nạp lại năng lượng an lành mỗi ngày. Sản phẩm chắt lọc 6 nguyên liệu quý quen thuộc gồm đông trùng hạ thảo, táo đỏ, kỷ tử, hoa nhài, hoa cúc vàng và cỏ ngọt, tạo nên sắc trà vàng óng cùng hương thơm thanh khiết, êm dịu. Phù hợp với: Người hay mệt mỏi, suy nhược, người làm việc trí óc cường độ cao hoặc cần một thức uống thanh mát để chăm sóc sức khỏe hằng ngày.</p>
+                        </div>
+                        <div>
+                            <div class="price">49.000đ – 529.000đ</div>
+                            <div class="btn-group">
+                                <button type="button" class="btn-fill" data-open-modal="lucvi">Chọn phân loại</button>
+                                <a href="https://shopee.vn/Tr%C3%A0-L%E1%BB%A5c-V%E1%BB%8B-D%C6%B0%E1%BB%A1ng-Nhan-d%C6%B0%E1%BB%A1ng-da-b%E1%BB%95-huy%E1%BA%BFt-n%E1%BB%99i-ti%E1%BA%BFt-(%C4%90%C3%B4ng-tr%C3%B9ng-h%E1%BA%A3o-t%C3%A1o-%C4%91%E1%BB%8F-k%E1%BB%B3-t%E1%BB%AD-hoa-nh%C3%A0i-hoa-c%C3%BAc-v%C3%A0ng-c%E1%BB%8F-ng%E1%BB%8Dt)-i.121955163.45153381029?extraParams=%7B%22display_model_id%22%3A380323199264%2C%22model_selection_logic%22%3A3%7D&image_ids=vn-11134207-81ztc-mpubje6dr8ct96" target="_blank" class="btn-outline">Shopee</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Sản phẩm 2: Thiền Trà (ảnh 7, 8, 9, 4) -->
             <div class="card">
-                <div class="slider" data-product="thientra">
-                    <span class="img-counter">1 / 4</span>
-                    <img class="main-photo slide-img" src="7.jpg" alt="Set 5 gói ngủ ngon" style="display:block;">
-                    <img class="main-photo slide-img" src="8.jpg" alt="Set 15 gói" style="display:none;">
-                    <img class="main-photo slide-img" src="9.jpg" alt="Set 3 gói" style="display:none;">
-                    <img class="main-photo slide-img" src="4.jpg" alt="Set 4 gói" style="display:none;">
-                    <button type="button" class="slider-btn prev" aria-label="Ảnh trước">&#8249;</button>
-                    <button type="button" class="slider-btn next" aria-label="Ảnh tiếp theo">&#8250;</button>
-                    <div class="slider-dots">
-                        <button type="button" class="dot active" data-idx="0" aria-label="Ảnh 1"></button>
-                        <button type="button" class="dot" data-idx="1" aria-label="Ảnh 2"></button>
-                        <button type="button" class="dot" data-idx="2" aria-label="Ảnh 3"></button>
-                        <button type="button" class="dot" data-idx="3" aria-label="Ảnh 4"></button>
+                <div>
+                    <div class="slider" data-product="thientra">
+                        <span class="img-counter">1 / 4</span>
+                        <img class="main-photo slide-img" src="7.jpg" alt="Diệu Hảo Thiền Trà 1" style="display:block;">
+                        <img class="main-photo slide-img" src="8.jpg" alt="Diệu Hảo Thiền Trà 2" style="display:none;">
+                        <img class="main-photo slide-img" src="9.jpg" alt="Diệu Hảo Thiền Trà 3" style="display:none;">
+                        <img class="main-photo slide-img" src="4.jpg" alt="Diệu Hảo Thiền Trà 4" style="display:none;">
+                        <button type="button" class="slider-btn prev" aria-label="Ảnh trước">&#8249;</button>
+                        <button type="button" class="slider-btn next" aria-label="Ảnh tiếp theo">&#8250;</button>
+                        <div class="slider-dots">
+                            <button type="button" class="dot active" data-idx="0" aria-label="Ảnh 1"></button>
+                            <button type="button" class="dot" data-idx="1" aria-label="Ảnh 2"></button>
+                            <button type="button" class="dot" data-idx="2" aria-label="Ảnh 3"></button>
+                            <button type="button" class="dot" data-idx="3" aria-label="Ảnh 4"></button>
+                        </div>
                     </div>
-                </div>
-                <div class="thumbs" data-thumbs="thientra">
-                    <button type="button" class="thumb-btn active" data-idx="0"><img src="7.jpg" alt="Ảnh 7"></button>
-                    <button type="button" class="thumb-btn" data-idx="1"><img src="8.jpg" alt="Ảnh 8"></button>
-                    <button type="button" class="thumb-btn" data-idx="2"><img src="9.jpg" alt="Ảnh 9"></button>
-                    <button type="button" class="thumb-btn" data-idx="3"><img src="4.jpg" alt="Ảnh 4"></button>
-                </div>
-                <div class="card-body">
-                    <h3 class="card-title" data-open-modal="thientra">Diệu Hảo Thiền Trà</h3>
-                    <p class="card-desc">Gồm các lựa chọn set 5 gói ngủ ngon (59k), set 15 gói (229k), set 3 gói (549k) và set 4 gói (749k).</p>
-                    <div class="price">59.000đ – 749.000đ</div>
-                    <div class="btn-group">
-                        <button type="button" class="btn-fill" data-open-modal="thientra">Chọn phân loại</button>
-                        <a href="https://shopee.vn/Thi%E1%BB%81n-Tr%C3%A0-Di%E1%BB%87u-H%E1%BA%A3o-Tr%C3%A0-th%E1%BA%A3o-m%E1%BB%99c-thi%C3%AAn-nhi%C3%AAn-h%E1%BB%97-tr%E1%BB%A3-gi%E1%BA%A3m-m%E1%BB%A1-m%C3%A1u-men-gan-Long-nh%C3%A3n-h%E1%BA%A1t-sen-k%E1%BB%B3-t%E1%BB%AD-hoa-c%C3%BAc-v%C3%A0ng-...-i.121955163.47903404427?extraParams=%7B%22display_model_id%22%3A445326747438%2C%22model_selection_logic%22%3A3%7D&image_ids=vn-11134207-81ztc-mpubc74hab5t47" target="_blank" class="btn-outline">Shopee</a>
+                    <div class="thumbs" data-thumbs="thientra">
+                        <button type="button" class="thumb-btn active" data-idx="0"><img src="7.jpg" alt="Ảnh 7"></button>
+                        <button type="button" class="thumb-btn" data-idx="1"><img src="8.jpg" alt="Ảnh 8"></button>
+                        <button type="button" class="thumb-btn" data-idx="2"><img src="9.jpg" alt="Ảnh 9"></button>
+                        <button type="button" class="thumb-btn" data-idx="3"><img src="4.jpg" alt="Ảnh 4"></button>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h3 class="card-title" data-open-modal="thientra">Diệu Hảo Thiền Trà</h3>
+                            <p class="card-desc">Giữa nhịp sống bận rộn, Diệu Hảo Thiền Trà 11 Vị mang đến một khoảng dừng dịu êm để bạn vỗ về cơ thể từ bên trong. Là sự hòa quyện tinh tế của 11 loại hoa trái và thảo mộc tự nhiên gồm táo đỏ, kỷ tử, long nhãn, hạt sen, tâm sen, tắc vàng, hoa cúc, nụ hồng, lá sen sấy, lá dứa và cỏ ngọt, mỗi tách trà là một trải nghiệm tròn vị: ngọt thanh tự nhiên, thoảng hương hoa dịu nhẹ và điểm chút chua thanh mát lành của tắc vàng. Phù hợp với: Người thường xuyên căng thẳng, khó ngủ, dân văn phòng hoặc chị em muốn thay thế đồ uống nhiều đường bằng thức trà dưỡng nhan lành mạnh.</p>
+                        </div>
+                        <div>
+                            <div class="price">59.000đ – 749.000đ</div>
+                            <div class="btn-group">
+                                <button type="button" class="btn-fill" data-open-modal="thientra">Chọn phân loại</button>
+                                <a href="https://shopee.vn/Thi%E1%BB%81n-Tr%C3%A0-Di%E1%BB%87u-H%E1%BA%A3o-Tr%C3%A0-th%E1%BA%A3o-m%E1%BB%99c-thi%C3%AAn-nhi%C3%AAn-h%E1%BB%97-tr%E1%BB%A3-gi%E1%BA%A3m-m%E1%BB%A1-m%C3%A1u-men-gan-Long-nh%C3%A3n-h%E1%BA%A1t-sen-k%E1%BB%B3-t%E1%BB%AD-hoa-c%C3%BAc-v%C3%A0ng-...-i.121955163.47903404427?extraParams=%7B%22display_model_id%22%3A445326747438%2C%22model_selection_logic%22%3A3%7D&image_ids=vn-11134207-81ztc-mpubc74hab5t47" target="_blank" class="btn-outline">Shopee</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Sản phẩm 3: Túi Thơm (ảnh 14, 15, 16, 17) -->
             <div class="card">
-                <div class="slider" data-product="tuithom">
-                    <span class="img-counter">1 / 4</span>
-                    <img class="main-photo slide-img" src="14.jpg" alt="Túi Thơm Thảo Mộc 1" style="display:block;">
-                    <img class="main-photo slide-img" src="15.jpg" alt="Túi Thơm Thảo Mộc 2" style="display:none;">
-                    <img class="main-photo slide-img" src="16.jpg" alt="Túi Thơm Thảo Mộc 3" style="display:none;">
-                    <img class="main-photo slide-img" src="17.jpg" alt="Túi Thơm Thảo Mộc 4" style="display:none;">
-                    <button type="button" class="slider-btn prev" aria-label="Ảnh trước">&#8249;</button>
-                    <button type="button" class="slider-btn next" aria-label="Ảnh tiếp theo">&#8250;</button>
-                    <div class="slider-dots">
-                        <button type="button" class="dot active" data-idx="0" aria-label="Ảnh 1"></button>
-                        <button type="button" class="dot" data-idx="1" aria-label="Ảnh 2"></button>
-                        <button type="button" class="dot" data-idx="2" aria-label="Ảnh 3"></button>
-                        <button type="button" class="dot" data-idx="3" aria-label="Ảnh 4"></button>
+                <div>
+                    <div class="slider" data-product="tuithom">
+                        <span class="img-counter">1 / 4</span>
+                        <img class="main-photo slide-img" src="14.jpg" alt="Túi Thơm Thảo Mộc 1" style="display:block;">
+                        <img class="main-photo slide-img" src="15.jpg" alt="Túi Thơm Thảo Mộc 2" style="display:none;">
+                        <img class="main-photo slide-img" src="16.jpg" alt="Túi Thơm Thảo Mộc 3" style="display:none;">
+                        <img class="main-photo slide-img" src="17.jpg" alt="Túi Thơm Thảo Mộc 4" style="display:none;">
+                        <button type="button" class="slider-btn prev" aria-label="Ảnh trước">&#8249;</button>
+                        <button type="button" class="slider-btn next" aria-label="Ảnh tiếp theo">&#8250;</button>
+                        <div class="slider-dots">
+                            <button type="button" class="dot active" data-idx="0" aria-label="Ảnh 1"></button>
+                            <button type="button" class="dot" data-idx="1" aria-label="Ảnh 2"></button>
+                            <button type="button" class="dot" data-idx="2" aria-label="Ảnh 3"></button>
+                            <button type="button" class="dot" data-idx="3" aria-label="Ảnh 4"></button>
+                        </div>
                     </div>
-                </div>
-                <div class="thumbs" data-thumbs="tuithom">
-                    <button type="button" class="thumb-btn active" data-idx="0"><img src="14.jpg" alt="Ảnh 14"></button>
-                    <button type="button" class="thumb-btn" data-idx="1"><img src="15.jpg" alt="Ảnh 15"></button>
-                    <button type="button" class="thumb-btn" data-idx="2"><img src="16.jpg" alt="Ảnh 16"></button>
-                    <button type="button" class="thumb-btn" data-idx="3"><img src="17.jpg" alt="Ảnh 17"></button>
-                </div>
-                <div class="card-body">
-                    <h3 class="card-title" data-open-modal="tuithom">Túi Thơm Thảo Mộc</h3>
-                    <p class="card-desc">Hương thảo mộc tự nhiên dịu nhẹ, phù hợp đặt tủ quần áo, phòng ngủ, bàn làm việc hoặc làm quà tặng.</p>
-                    <div class="price">79.000đ</div>
-                    <div class="btn-group">
-                        <button type="button" class="btn-fill" data-open-modal="tuithom">Chọn phân loại</button>
-                        <a href="https://shopee.vn/T%C3%BAi-th%C6%A1m-treo-ph%C3%B2ng-th%E1%BA%A3o-m%E1%BB%99c-thi%C3%AAn-nhi%C3%AAn-hoa-h%E1%BB%93ng-hoa-nh%C3%A0i-tr%C3%A0-xanh-qu%E1%BA%BF-lavender-h%C6%B0%C6%A1ng-th%C6%A1m-th%C6%B0-gi%C3%A3n-i.121955163.57413614299?extraParams=%7B%22display_model_id%22%3A287766841571%2C%22model_selection_logic%22%3A3%7D&image_ids=vn-11134207-81ztc-mv1kbv3zr9j76c" target="_blank" class="btn-outline">Shopee</a>
+                    <div class="thumbs" data-thumbs="tuithom">
+                        <button type="button" class="thumb-btn active" data-idx="0"><img src="14.jpg" alt="Ảnh 14"></button>
+                        <button type="button" class="thumb-btn" data-idx="1"><img src="15.jpg" alt="Ảnh 15"></button>
+                        <button type="button" class="thumb-btn" data-idx="2"><img src="16.jpg" alt="Ảnh 16"></button>
+                        <button type="button" class="thumb-btn" data-idx="3"><img src="17.jpg" alt="Ảnh 17"></button>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h3 class="card-title" data-open-modal="tuithom">Túi Thơm Thảo Mộc</h3>
+                            <p class="card-desc">Túi Thơm Thảo Mộc Diệu Hảo là sự kết tinh từ các loại hoa khô, vỏ quả và thảo mộc tự nhiên được tuyển chọn kỹ lưỡng, lưu giữ mùi hương mộc mạc, dịu nhẹ và thuần khiết. Không nồng gắt hóa chất, từng túi thơm nhỏ xinh tỏa hương thoang thoảng như một làn gió thanh tịnh, giúp xua tan cảm giác ngột ngạt và làm dịu tâm trí suốt cả ngày dài. Gợi ý sử dụng: Treo trong tủ quần áo, góc làm việc, đầu giường ngủ, xe ô tô hoặc đặt trong túi xách như một "bùa bình an" nhỏ mang theo bên mình.</p>
+                        </div>
+                        <div>
+                            <div class="price">79.000đ</div>
+                            <div class="btn-group">
+                                <button type="button" class="btn-fill" data-open-modal="tuithom">Xem chi tiết</button>
+                                <a href="https://shopee.vn/T%C3%BAi-th%C6%A1m-treo-ph%C3%B2ng-th%E1%BA%A3o-m%E1%BB%99c-thi%C3%AAn-nhi%C3%AAn-hoa-h%E1%BB%93ng-hoa-nh%C3%A0i-tr%C3%A0-xanh-qu%E1%BA%BF-lavender-h%C6%B0%C6%A1ng-th%C6%A1m-th%C6%B0-gi%C3%A3n-i.121955163.57413614299?extraParams=%7B%22display_model_id%22%3A287766841571%2C%22model_selection_logic%22%3A3%7D&image_ids=vn-11134207-81ztc-mv1kbv3zr9j76c" target="_blank" class="btn-outline">Shopee</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Sản phẩm 4: Nến Thơm (ảnh 18, 19, 20, 21) -->
             <div class="card">
-                <div class="slider" data-product="nenthom">
-                    <span class="img-counter">1 / 4</span>
-                    <img class="main-photo slide-img" src="18.jpg" alt="Nến Thơm Thảo Mộc 1" style="display:block;">
-                    <img class="main-photo slide-img" src="19.jpg" alt="Nến Thơm Thảo Mộc 2" style="display:none;">
-                    <img class="main-photo slide-img" src="20.jpg" alt="Nến Thơm Thảo Mộc 3" style="display:none;">
-                    <img class="main-photo slide-img" src="21.jpg" alt="Nến Thơm Thảo Mộc 4" style="display:none;">
-                    <button type="button" class="slider-btn prev" aria-label="Ảnh trước">&#8249;</button>
-                    <button type="button" class="slider-btn next" aria-label="Ảnh tiếp theo">&#8250;</button>
-                    <div class="slider-dots">
-                        <button type="button" class="dot active" data-idx="0" aria-label="Ảnh 1"></button>
-                        <button type="button" class="dot" data-idx="1" aria-label="Ảnh 2"></button>
-                        <button type="button" class="dot" data-idx="2" aria-label="Ảnh 3"></button>
-                        <button type="button" class="dot" data-idx="3" aria-label="Ảnh 4"></button>
+                <div>
+                    <div class="slider" data-product="nenthom">
+                        <span class="img-counter">1 / 4</span>
+                        <img class="main-photo slide-img" src="18.jpg" alt="Nến Thơm Thảo Mộc 1" style="display:block;">
+                        <img class="main-photo slide-img" src="19.jpg" alt="Nến Thơm Thảo Mộc 2" style="display:none;">
+                        <img class="main-photo slide-img" src="20.jpg" alt="Nến Thơm Thảo Mộc 3" style="display:none;">
+                        <img class="main-photo slide-img" src="21.jpg" alt="Nến Thơm Thảo Mộc 4" style="display:none;">
+                        <button type="button" class="slider-btn prev" aria-label="Ảnh trước">&#8249;</button>
+                        <button type="button" class="slider-btn next" aria-label="Ảnh tiếp theo">&#8250;</button>
+                        <div class="slider-dots">
+                            <button type="button" class="dot active" data-idx="0" aria-label="Ảnh 1"></button>
+                            <button type="button" class="dot" data-idx="1" aria-label="Ảnh 2"></button>
+                            <button type="button" class="dot" data-idx="2" aria-label="Ảnh 3"></button>
+                            <button type="button" class="dot" data-idx="3" aria-label="Ảnh 4"></button>
+                        </div>
                     </div>
-                </div>
-                <div class="thumbs" data-thumbs="nenthom">
-                    <button type="button" class="thumb-btn active" data-idx="0"><img src="18.jpg" alt="Ảnh 18"></button>
-                    <button type="button" class="thumb-btn" data-idx="1"><img src="19.jpg" alt="Ảnh 19"></button>
-                    <button type="button" class="thumb-btn" data-idx="2"><img src="20.jpg" alt="Ảnh 20"></button>
-                    <button type="button" class="thumb-btn" data-idx="3"><img src="21.jpg" alt="Ảnh 21"></button>
-                </div>
-                <div class="card-body">
-                    <h3 class="card-title" data-open-modal="nenthom">Nến Thơm Thảo Mộc</h3>
-                    <p class="card-desc">Nến thơm thủ công tạo không gian an yên, thư giãn khi thưởng trà, đọc sách hoặc nghỉ ngơi buổi tối.</p>
-                    <div class="price">139.000đ</div>
-                    <div class="btn-group">
-                        <button type="button" class="btn-fill" data-open-modal="nenthom">Chọn phân loại</button>
-                        <a href="https://shopee.vn/N%E1%BA%BFn-Th%C6%A1m-H%E1%BB%AFu-C%C6%A1-Thu%E1%BA%A7n-Chay-Handmade-Trang-Tr%C3%AD-Di%E1%BB%87u-H%E1%BA%A3o-Thi%E1%BB%81n-Tr%C3%A0-i.121955163.45313634693?extraParams=%7B%22display_model_id%22%3A292766913316%2C%22model_selection_logic%22%3A3%7D&image_ids=vn-11134207-81ztc-mqeq2z4mrz0se5" target="_blank" class="btn-outline">Shopee</a>
+                    <div class="thumbs" data-thumbs="nenthom">
+                        <button type="button" class="thumb-btn active" data-idx="0"><img src="18.jpg" alt="Ảnh 18"></button>
+                        <button type="button" class="thumb-btn" data-idx="1"><img src="19.jpg" alt="Ảnh 19"></button>
+                        <button type="button" class="thumb-btn" data-idx="2"><img src="20.jpg" alt="Ảnh 20"></button>
+                        <button type="button" class="thumb-btn" data-idx="3"><img src="21.jpg" alt="Ảnh 21"></button>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h3 class="card-title" data-open-modal="nenthom">Nến Thơm Thảo Mộc</h3>
+                            <p class="card-desc">Khi ánh nến khẽ bừng lên cũng là lúc nhịp sống vội vã ngoài kia tạm khép lại. Nến Thơm Diệu Hảo mang đến không gian ấm áp với ánh lửa dịu dàng hòa quyện cùng tầng hương tinh dầu thanh khiết, gợi nhớ đến hương trà sớm, gỗ mộc và cỏ cây sau mưa. Chỉ cần thắp nến trong vài chục phút, căn phòng như được "thanh lọc", trở thành góc thiền nhỏ để bạn đọc sách, thưởng trà hoặc thả lỏng sau một ngày dài. Phù hợp với: Những buổi tối thư giãn, lúc ngồi thiền, tập yoga, đọc sách, thưởng trà hoặc làm món quà tinh tế gửi tặng người thương.</p>
+                        </div>
+                        <div>
+                            <div class="price">139.000đ</div>
+                            <div class="btn-group">
+                                <button type="button" class="btn-fill" data-open-modal="nenthom">Xem chi tiết</button>
+                                <a href="https://shopee.vn/N%E1%BA%BFn-Th%C6%A1m-H%E1%BB%AFu-C%C6%A1-Thu%E1%BA%A7n-Chay-Handmade-Trang-Tr%C3%AD-Di%E1%BB%87u-H%E1%BA%A3o-Thi%E1%BB%81n-Tr%C3%A0-i.121955163.45313634693?extraParams=%7B%22display_model_id%22%3A292766913316%2C%22model_selection_logic%22%3A3%7D&image_ids=vn-11134207-81ztc-mqeq2z4mrz0se5" target="_blank" class="btn-outline">Shopee</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -260,8 +285,10 @@
             <button type="button" class="modal-close" id="closeModalBtn">&times;</button>
             <h3 id="modalTitle" class="card-title"></h3>
             <img id="modalImg" class="modal-img" src="" alt="">
-            <p class="card-desc">Chọn phân loại sản phẩm:</p>
-            <div id="modalVariants" class="variants"></div>
+            <div id="modalVariantsWrap" class="variants-wrap">
+                <p class="card-desc" style="margin-bottom:6px; text-align:left;">Chọn phân loại sản phẩm:</p>
+                <div id="modalVariants" class="variants"></div>
+            </div>
             <div class="price" id="modalPrice">Liên hệ / Cập nhật giá</div>
             <div class="btn-group">
                 <a id="modalShopee" href="https://shopee.vn" target="_blank" class="btn-fill">Đặt trên Shopee</a>
@@ -297,31 +324,41 @@
 
     <script>
         (function() {
-            const galleries = {
-                lucvi: [
-                    { src: '3.jpg', label: 'Set 5 gói ngủ ngon', price: '49.000đ' },
-                    { src: '4.jpg', label: 'Túi 15 gói', price: '159.000đ' },
-                    { src: '5.jpg', label: 'Set 3 túi', price: '389.000đ' },
-                    { src: '6.jpg', label: 'Set 4 túi', price: '529.000đ' }
-                ],
-                thientra: [
-                    { src: '7.jpg', label: 'Set 5 gói ngủ ngon', price: '59.000đ' },
-                    { src: '8.jpg', label: 'Set 15 gói', price: '229.000đ' },
-                    { src: '9.jpg', label: 'Set 3 gói', price: '549.000đ' },
-                    { src: '4.jpg', label: 'Set 4 gói', price: '749.000đ' }
-                ],
-                tuithom: [
-                    { src: '14.jpg', label: '01 Túi thơm', price: '79.000đ' },
-                    { src: '15.jpg', label: 'Combo 2 túi thơm', price: 'Liên hệ / Cập nhật giá' },
-                    { src: '16.jpg', label: 'Combo 3 túi thơm', price: 'Liên hệ / Cập nhật giá' },
-                    { src: '17.jpg', label: 'Set quà túi thơm', price: 'Liên hệ / Cập nhật giá' }
-                ],
-                nenthom: [
-                    { src: '18.jpg', label: '01 Nến thơm', price: '139.000đ' },
-                    { src: '19.jpg', label: 'Nến thơm - Phân loại 2', price: 'Liên hệ / Cập nhật giá' },
-                    { src: '20.jpg', label: 'Nến thơm - Phân loại 3', price: 'Liên hệ / Cập nhật giá' },
-                    { src: '21.jpg', label: 'Nến thơm - Phân loại 4', price: 'Liên hệ / Cập nhật giá' }
-                ]
+            const productDetails = {
+                lucvi: {
+                    name: 'Diệu Hảo Thiền Trà Lục Vị',
+                    defaultImg: '3.jpg',
+                    defaultPrice: '49.000đ – 529.000đ',
+                    variants: [
+                        { src: '22.jpg', label: 'Set 5 gói ngủ ngon', price: '49.000đ' },
+                        { src: '23.jpg', label: 'Túi 15 gói', price: '159.000đ' },
+                        { src: '24.jpg', label: 'Set 3 túi', price: '389.000đ' },
+                        { src: '25.jpg', label: 'Set 4 túi', price: '529.000đ' }
+                    ]
+                },
+                thientra: {
+                    name: 'Diệu Hảo Thiền Trà',
+                    defaultImg: '7.jpg',
+                    defaultPrice: '59.000đ – 749.000đ',
+                    variants: [
+                        { src: '26.jpg', label: 'Set 5 gói ngủ ngon', price: '59.000đ' },
+                        { src: '27.jpg', label: 'Set 15 gói', price: '229.000đ' },
+                        { src: '28.jpg', label: 'Set 3 gói', price: '549.000đ' },
+                        { src: '29.jpg', label: 'Set 4 gói', price: '749.000đ' }
+                    ]
+                },
+                tuithom: {
+                    name: 'Túi Thơm Thảo Mộc',
+                    defaultImg: '14.jpg',
+                    defaultPrice: '79.000đ',
+                    variants: []
+                },
+                nenthom: {
+                    name: 'Nến Thơm Thảo Mộc',
+                    defaultImg: '18.jpg',
+                    defaultPrice: '139.000đ',
+                    variants: []
+                }
             };
 
             const shopeeLinks = {
@@ -329,13 +366,6 @@
                 thientra: 'https://shopee.vn/Thi%E1%BB%81n-Tr%C3%A0-Di%E1%BB%87u-H%E1%BA%A3o-Tr%C3%A0-th%E1%BA%A3o-m%E1%BB%99c-thi%C3%AAn-nhi%C3%AAn-h%E1%BB%97-tr%E1%BB%A3-gi%E1%BA%A3m-m%E1%BB%A1-m%C3%A1u-men-gan-Long-nh%C3%A3n-h%E1%BA%A1t-sen-k%E1%BB%B3-t%E1%BB%AD-hoa-c%C3%BAc-v%C3%A0ng-...-i.121955163.47903404427?extraParams=%7B%22display_model_id%22%3A445326747438%2C%22model_selection_logic%22%3A3%7D&image_ids=vn-11134207-81ztc-mpubc74hab5t47',
                 tuithom: 'https://shopee.vn/T%C3%BAi-th%C6%A1m-treo-ph%C3%B2ng-th%E1%BA%A3o-m%E1%BB%99c-thi%C3%AAn-nhi%C3%AAn-hoa-h%E1%BB%93ng-hoa-nh%C3%A0i-tr%C3%A0-xanh-qu%E1%BA%BF-lavender-h%C6%B0%C6%A1ng-th%C6%A1m-th%C6%B0-gi%C3%A3n-i.121955163.57413614299?extraParams=%7B%22display_model_id%22%3A287766841571%2C%22model_selection_logic%22%3A3%7D&image_ids=vn-11134207-81ztc-mv1kbv3zr9j76c',
                 nenthom: 'https://shopee.vn/N%E1%BA%BFn-Th%C6%A1m-H%E1%BB%AFu-C%C6%A1-Thu%E1%BA%A7n-Chay-Handmade-Trang-Tr%C3%AD-Di%E1%BB%87u-H%E1%BA%A3o-Thi%E1%BB%81n-Tr%C3%A0-i.121955163.45313634693?extraParams=%7B%22display_model_id%22%3A292766913316%2C%22model_selection_logic%22%3A3%7D&image_ids=vn-11134207-81ztc-mqeq2z4mrz0se5'
-            };
-
-            const productNames = {
-                lucvi: 'Diệu Hảo Thiền Trà Lục Vị',
-                thientra: 'Diệu Hảo Thiền Trà',
-                tuithom: 'Túi Thơm Thảo Mộc',
-                nenthom: 'Nến Thơm Thảo Mộc'
             };
 
             document.querySelectorAll('.slider').forEach(function(slider) {
@@ -400,39 +430,44 @@
             const modal = document.getElementById('productModal');
             const modalTitle = document.getElementById('modalTitle');
             const modalImg = document.getElementById('modalImg');
+            const modalVariantsWrap = document.getElementById('modalVariantsWrap');
             const modalVariants = document.getElementById('modalVariants');
             const modalPrice = document.getElementById('modalPrice');
             const modalShopee = document.getElementById('modalShopee');
 
             function openModal(key) {
-                const items = galleries[key];
-                if (!items) return;
-                modalTitle.textContent = productNames[key] || '';
+                const detail = productDetails[key];
+                if (!detail) return;
+
+                modalTitle.textContent = detail.name;
                 modalShopee.href = shopeeLinks[key] || 'https://shopee.vn';
                 modalVariants.innerHTML = '';
 
-                items.forEach(function(item, idx) {
-                    const btn = document.createElement('button');
-                    btn.type = 'button';
-                    btn.className = 'var-btn' + (idx === 0 ? ' active' : '');
-                    btn.textContent = item.label;
-                    btn.addEventListener('click', function() {
-                        modalVariants.querySelectorAll('.var-btn').forEach(function(b) {
-                            b.classList.remove('active');
+                if (Array.isArray(detail.variants) && detail.variants.length > 0) {
+                    modalVariantsWrap.style.display = 'block';
+                    detail.variants.forEach(function(item, idx) {
+                        const btn = document.createElement('button');
+                        btn.type = 'button';
+                        btn.className = 'var-btn' + (idx === 0 ? ' active' : '');
+                        btn.textContent = item.label;
+                        btn.addEventListener('click', function() {
+                            modalVariants.querySelectorAll('.var-btn').forEach(function(b) {
+                                b.classList.remove('active');
+                            });
+                            btn.classList.add('active');
+                            modalImg.src = item.src;
+                            modalPrice.textContent = item.price;
                         });
-                        btn.classList.add('active');
-                        modalImg.src = item.src;
-                        if (modalPrice) {
-                            modalPrice.textContent = item.price || 'Liên hệ / Cập nhật giá';
-                        }
+                        modalVariants.appendChild(btn);
                     });
-                    modalVariants.appendChild(btn);
-                });
-
-                modalImg.src = items[0].src;
-                if (modalPrice) {
-                    modalPrice.textContent = items[0].price || 'Liên hệ / Cập nhật giá';
+                    modalImg.src = detail.variants[0].src;
+                    modalPrice.textContent = detail.variants[0].price;
+                } else {
+                    modalVariantsWrap.style.display = 'none';
+                    modalImg.src = detail.defaultImg;
+                    modalPrice.textContent = detail.defaultPrice;
                 }
+
                 modal.classList.add('open');
             }
 
