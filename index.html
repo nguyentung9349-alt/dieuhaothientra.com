@@ -502,29 +502,45 @@
 
     <script>
         (async function() {
-            const pdfUrl = 'Cam.nang.pdf'; // Đúng tên file trên GitHub của bạn (có chữ C viết hoa)
+            const pdfUrl = 'Cam.nang.pdf';
             const statusEl = document.getElementById('flip-status');
+            const wrapperEl = document.getElementById('flipbook-wrapper');
             const bookContainer = document.getElementById('pdf-flipbook');
 
+            function fallbackIframe(reasonText) {
+                if (statusEl) statusEl.textContent = reasonText || 'Đang hiển thị bản đọc PDF trực tiếp';
+                if (wrapperEl) {
+                    wrapperEl.style.display = 'block';
+                    wrapperEl.style.padding = '0';
+                    wrapperEl.innerHTML = '<iframe src="' + pdfUrl + '" style="width:100%; height:620px; border:none; border-radius:10px; display:block;" title="Cẩm nang PDF"></iframe>';
+                }
+            }
+
             if (!bookContainer || typeof pdfjsLib === 'undefined' || typeof St === 'undefined') {
-                if (statusEl) statusEl.textContent = 'Không tải được trình lật trang. Vui lòng bấm Mở file PDF.';
+                fallbackIframe('Không tải được hiệu ứng lật trang, đang mở chế độ xem PDF.');
                 return;
             }
 
-            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-
             try {
-                const pdf = await pdfjsLib.getDocument(pdfUrl).promise;
+                // Tắt worker ngoài để tránh lỗi chặn hoặc xung đột phiên bản trên trình duyệt
+                pdfjsLib.GlobalWorkerOptions.workerSrc = '';
+
+                const loadingTask = pdfjsLib.getDocument({
+                    url: pdfUrl,
+                    disableAutoFetch: true,
+                    disableStream: false
+                });
+
+                const pdf = await loadingTask.promise;
                 const totalPages = pdf.numPages;
                 const renderedPages = new Set();
 
-                // Lấy tỉ lệ kích thước chuẩn từ trang đầu tiên
                 const firstPage = await pdf.getPage(1);
                 const baseViewport = firstPage.getViewport({ scale: 1 });
                 const pageWidth = 420;
-                const pageHeight = Math.round(pageWidth * (baseViewport.height / baseViewport.width));
+                const pageHeight = Math.max(380, Math.round(pageWidth * (baseViewport.height / baseViewport.width)));
 
-                // Tạo sẵn khung 118 trang trống để lật mượt mà không bị đơ máy
+                bookContainer.innerHTML = '';
                 for (let i = 1; i <= totalPages; i++) {
                     const pageDiv = document.createElement('div');
                     pageDiv.style.background = '#fffdf9';
@@ -536,31 +552,30 @@
                     bookContainer.appendChild(pageDiv);
                 }
 
-                // Hàm vẽ nội dung PDF lên từng trang khi người dùng lật tới
                 async function renderPage(pageNum) {
                     if (pageNum < 1 || pageNum > totalPages || renderedPages.has(pageNum)) return;
                     renderedPages.add(pageNum);
 
                     const page = await pdf.getPage(pageNum);
-                    const scale = (pageWidth * 1.6) / page.getViewport({ scale: 1 }).width;
+                    const unscaled = page.getViewport({ scale: 1 });
+                    const scale = (pageWidth * 1.5) / unscaled.width;
                     const viewport = page.getViewport({ scale: scale });
                     const canvas = document.getElementById('pdf-canvas-' + pageNum);
                     if (!canvas) return;
 
                     const ctx = canvas.getContext('2d');
-                    canvas.width = viewport.width;
-                    canvas.height = viewport.height;
+                    canvas.width = Math.round(viewport.width);
+                    canvas.height = Math.round(viewport.height);
                     await page.render({ canvasContext: ctx, viewport: viewport }).promise;
                 }
 
-                // Khởi tạo hiệu ứng lật sách 2 trang mở đôi
                 const pageFlip = new St.PageFlip(bookContainer, {
                     width: pageWidth,
                     height: pageHeight,
                     size: 'stretch',
-                    minWidth: 280,
+                    minWidth: 260,
                     maxWidth: 520,
-                    minHeight: 380,
+                    minHeight: 360,
                     maxHeight: 720,
                     showCover: true,
                     mobileScrollSupport: false,
@@ -569,29 +584,25 @@
 
                 pageFlip.loadFromHTML(bookContainer.children);
 
-                // Vẽ trước 4 trang đầu tiên
                 await Promise.all([renderPage(1), renderPage(2), renderPage(3), renderPage(4)]);
-                statusEl.textContent = 'Trang 1 / ' + totalPages;
+                if (statusEl) statusEl.textContent = 'Trang 1 / ' + totalPages;
 
-                // Khi lật trang: cập nhật số trang và tải trước các trang lân cận
                 pageFlip.on('flip', function(e) {
                     const current = e.data + 1;
-                    statusEl.textContent = 'Trang ' + current + ' / ' + totalPages;
+                    if (statusEl) statusEl.textContent = 'Trang ' + current + ' / ' + totalPages;
                     for (let p = current - 2; p <= current + 4; p++) {
                         renderPage(p);
                     }
                 });
 
-                document.getElementById('btn-prev-page').addEventListener('click', function() {
-                    pageFlip.flipPrev();
-                });
-                document.getElementById('btn-next-page').addEventListener('click', function() {
-                    pageFlip.flipNext();
-                });
+                const prevBtn = document.getElementById('btn-prev-page');
+                const nextBtn = document.getElementById('btn-next-page');
+                if (prevBtn) prevBtn.addEventListener('click', function() { pageFlip.flipPrev(); });
+                if (nextBtn) nextBtn.addEventListener('click', function() { pageFlip.flipNext(); });
 
             } catch (err) {
-                console.error(err);
-                statusEl.textContent = 'Lỗi tải file PDF. Bấm nút Mở file PDF bên phải để xem.';
+                console.error('PDF Flipbook error:', err);
+                fallbackIframe('Trình lật trang gặp sự cố với file PDF, đang mở trình đọc PDF.');
             }
         })();
     </script>
