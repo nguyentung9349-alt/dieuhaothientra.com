@@ -32,39 +32,39 @@
         .btn:hover { background: #7f552d; }
 
         /* Khu vực sản phẩm */
-        section { padding: 60px 5%; max-width: 1100px; margin: auto; }
+        section { padding: 60px 5%; max-width: 1320px; margin: auto; }
         h2.section-title { text-align: center; color: var(--primary); font-size: 1.9rem; margin-bottom: 8px; }
         p.section-sub { text-align: center; color: #665d64; margin-bottom: 36px; }
 
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px; }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(265px, 1fr)); gap: 24px; }
         .card { background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.07); display: flex; flex-direction: column; justify-content: space-between; }
 
         /* Khung ảnh sản phẩm */
         .slider { position: relative; width: 100%; aspect-ratio: 1 / 1; overflow: hidden; background: #f3efe9; user-select: none; }
         .slider img.main-photo { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 42px; height: 42px; border-radius: 50%; border: none; background: rgba(255,255,255,0.95); color: var(--primary); font-size: 1.4rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.22); z-index: 20; }
+        .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 38px; height: 38px; border-radius: 50%; border: none; background: rgba(255,255,255,0.95); color: var(--primary); font-size: 1.3rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.22); z-index: 20; }
         .slider-btn:hover { background: #fff; }
-        .slider-btn.prev { left: 12px; }
-        .slider-btn.next { right: 12px; }
-        .slider-dots { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; background: rgba(0,0,0,0.35); padding: 6px 10px; border-radius: 20px; z-index: 20; }
-        .dot { width: 10px; height: 10px; border-radius: 50%; border: none; background: rgba(255,255,255,0.55); cursor: pointer; padding: 0; }
+        .slider-btn.prev { left: 10px; }
+        .slider-btn.next { right: 10px; }
+        .slider-dots { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; gap: 7px; background: rgba(0,0,0,0.35); padding: 5px 9px; border-radius: 20px; z-index: 20; }
+        .dot { width: 8px; height: 8px; border-radius: 50%; border: none; background: rgba(255,255,255,0.55); cursor: pointer; padding: 0; }
         .dot.active { background: #fff; transform: scale(1.2); }
-        .img-counter { position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.55); color: #fff; font-size: 0.8rem; padding: 3px 9px; border-radius: 12px; z-index: 20; }
+        .img-counter { position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.55); color: #fff; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; z-index: 20; }
 
         /* Thanh ảnh thu nhỏ bấm chọn nhanh */
-        .thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; padding: 12px 22px 0; }
-        .thumb-btn { border: 2px solid transparent; border-radius: 8px; padding: 0; overflow: hidden; aspect-ratio: 1 / 1; cursor: pointer; background: #f3efe9; }
+        .thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; padding: 10px 18px 0; }
+        .thumb-btn { border: 2px solid transparent; border-radius: 7px; padding: 0; overflow: hidden; aspect-ratio: 1 / 1; cursor: pointer; background: #f3efe9; }
         .thumb-btn.active { border-color: var(--primary); }
         .thumb-btn img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-        .card-body { padding: 18px 22px 22px; }
-        .card-title { font-size: 1.3rem; color: var(--primary); margin-bottom: 8px; cursor: pointer; }
+        .card-body { padding: 16px 18px 20px; }
+        .card-title { font-size: 1.2rem; color: var(--primary); margin-bottom: 8px; cursor: pointer; }
         .card-title:hover { text-decoration: underline; }
-        .card-desc { font-size: 0.95rem; color: #554d53; margin-bottom: 14px; }
-        .price { font-size: 1.2rem; font-weight: 700; color: var(--accent); margin-bottom: 16px; }
-        .btn-group { display: flex; gap: 10px; }
-        .btn-fill { background: var(--primary); color: #fff; padding: 11px 14px; border-radius: 6px; text-decoration: none; font-size: 0.92rem; font-weight: 600; flex: 1; text-align: center; border: none; cursor: pointer; }
-        .btn-outline { background: transparent; border: 1px solid var(--primary); color: var(--primary); padding: 11px 14px; border-radius: 6px; text-decoration: none; font-size: 0.92rem; font-weight: 600; flex: 1; text-align: center; }
+        .card-desc { font-size: 0.92rem; color: #554d53; margin-bottom: 12px; }
+        .price { font-size: 1.12rem; font-weight: 700; color: var(--accent); margin-bottom: 14px; }
+        .btn-group { display: flex; gap: 8px; }
+        .btn-fill { background: var(--primary); color: #fff; padding: 10px 12px; border-radius: 6px; text-decoration: none; font-size: 0.88rem; font-weight: 600; flex: 1; text-align: center; border: none; cursor: pointer; }
+        .btn-outline { background: transparent; border: 1px solid var(--primary); color: var(--primary); padding: 10px 12px; border-radius: 6px; text-decoration: none; font-size: 0.88rem; font-weight: 600; flex: 1; text-align: center; }
 
         /* Hộp xem chi tiết khi click sản phẩm */
         .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 200; align-items: center; justify-content: center; padding: 16px; }
@@ -111,8 +111,8 @@
     <section id="san-pham">
         <h2 class="section-title">Sản Phẩm Của Chúng Tôi</h2>
 
-       <div class="products-grid">
-            <!-- Sản phẩm 1: Lục Vị (ảnh 3, 4, 5, 6, 12) -->
+        <div class="products-grid">
+            <!-- Sản phẩm 1: Lục Vị (ảnh 3, 4, 5, 6) -->
             <div class="card">
                 <div class="slider" data-product="lucvi">
                     <span class="img-counter">1 / 4</span>
@@ -146,7 +146,7 @@
                 </div>
             </div>
 
-            <!-- Sản phẩm 2: Thiền Trà (ảnh 7, 8, 9, 10, 11) -->
+            <!-- Sản phẩm 2: Thiền Trà (ảnh 7, 8, 9, 4) -->
             <div class="card">
                 <div class="slider" data-product="thientra">
                     <span class="img-counter">1 / 4</span>
@@ -179,6 +179,74 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Sản phẩm 3: Túi Thơm (ảnh 14, 15, 16, 17) -->
+            <div class="card">
+                <div class="slider" data-product="tuithom">
+                    <span class="img-counter">1 / 4</span>
+                    <img class="main-photo slide-img" src="14.jpg" alt="Túi Thơm Thảo Mộc 1" style="display:block;">
+                    <img class="main-photo slide-img" src="15.jpg" alt="Túi Thơm Thảo Mộc 2" style="display:none;">
+                    <img class="main-photo slide-img" src="16.jpg" alt="Túi Thơm Thảo Mộc 3" style="display:none;">
+                    <img class="main-photo slide-img" src="17.jpg" alt="Túi Thơm Thảo Mộc 4" style="display:none;">
+                    <button type="button" class="slider-btn prev" aria-label="Ảnh trước">&#8249;</button>
+                    <button type="button" class="slider-btn next" aria-label="Ảnh tiếp theo">&#8250;</button>
+                    <div class="slider-dots">
+                        <button type="button" class="dot active" data-idx="0" aria-label="Ảnh 1"></button>
+                        <button type="button" class="dot" data-idx="1" aria-label="Ảnh 2"></button>
+                        <button type="button" class="dot" data-idx="2" aria-label="Ảnh 3"></button>
+                        <button type="button" class="dot" data-idx="3" aria-label="Ảnh 4"></button>
+                    </div>
+                </div>
+                <div class="thumbs" data-thumbs="tuithom">
+                    <button type="button" class="thumb-btn active" data-idx="0"><img src="14.jpg" alt="Ảnh 14"></button>
+                    <button type="button" class="thumb-btn" data-idx="1"><img src="15.jpg" alt="Ảnh 15"></button>
+                    <button type="button" class="thumb-btn" data-idx="2"><img src="16.jpg" alt="Ảnh 16"></button>
+                    <button type="button" class="thumb-btn" data-idx="3"><img src="17.jpg" alt="Ảnh 17"></button>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title" data-open-modal="tuithom">Túi Thơm Thảo Mộc</h3>
+                    <p class="card-desc">Hương thảo mộc tự nhiên dịu nhẹ, phù hợp đặt tủ quần áo, phòng ngủ, bàn làm việc hoặc làm quà tặng.</p>
+                    <div class="price">Liên hệ / Cập nhật giá</div>
+                    <div class="btn-group">
+                        <button type="button" class="btn-fill" data-open-modal="tuithom">Chọn phân loại</button>
+                        <a href="https://shopee.vn" target="_blank" class="btn-outline">Shopee</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sản phẩm 4: Nến Thơm (ảnh 18, 19, 20, 21) -->
+            <div class="card">
+                <div class="slider" data-product="nenthom">
+                    <span class="img-counter">1 / 4</span>
+                    <img class="main-photo slide-img" src="18.jpg" alt="Nến Thơm Thảo Mộc 1" style="display:block;">
+                    <img class="main-photo slide-img" src="19.jpg" alt="Nến Thơm Thảo Mộc 2" style="display:none;">
+                    <img class="main-photo slide-img" src="20.jpg" alt="Nến Thơm Thảo Mộc 3" style="display:none;">
+                    <img class="main-photo slide-img" src="21.jpg" alt="Nến Thơm Thảo Mộc 4" style="display:none;">
+                    <button type="button" class="slider-btn prev" aria-label="Ảnh trước">&#8249;</button>
+                    <button type="button" class="slider-btn next" aria-label="Ảnh tiếp theo">&#8250;</button>
+                    <div class="slider-dots">
+                        <button type="button" class="dot active" data-idx="0" aria-label="Ảnh 1"></button>
+                        <button type="button" class="dot" data-idx="1" aria-label="Ảnh 2"></button>
+                        <button type="button" class="dot" data-idx="2" aria-label="Ảnh 3"></button>
+                        <button type="button" class="dot" data-idx="3" aria-label="Ảnh 4"></button>
+                    </div>
+                </div>
+                <div class="thumbs" data-thumbs="nenthom">
+                    <button type="button" class="thumb-btn active" data-idx="0"><img src="18.jpg" alt="Ảnh 18"></button>
+                    <button type="button" class="thumb-btn" data-idx="1"><img src="19.jpg" alt="Ảnh 19"></button>
+                    <button type="button" class="thumb-btn" data-idx="2"><img src="20.jpg" alt="Ảnh 20"></button>
+                    <button type="button" class="thumb-btn" data-idx="3"><img src="21.jpg" alt="Ảnh 21"></button>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title" data-open-modal="nenthom">Nến Thơm Thảo Mộc</h3>
+                    <p class="card-desc">Nến thơm thư giãn tạo không gian an yên khi thưởng trà, đọc sách hoặc nghỉ ngơi buổi tối.</p>
+                    <div class="price">Liên hệ / Cập nhật giá</div>
+                    <div class="btn-group">
+                        <button type="button" class="btn-fill" data-open-modal="nenthom">Chọn phân loại</button>
+                        <a href="https://shopee.vn" target="_blank" class="btn-outline">Shopee</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -198,13 +266,13 @@
         </div>
     </div>
 
-  <section id="cam-nang">
+    <section id="cam-nang">
         <h2 class="section-title">Cẩm Nang Dưỡng Nhan &amp; Trà Thảo Mộc</h2>
         <p class="section-sub">Kéo mép trang hoặc bấm nút bên dưới để lật từng trang sách trực tiếp từ file So_Tay_Tra_Dieu_Hao_V12.pdf</p>
 
         <div class="ebook-container">
             <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:16px;">
-                <span id="flip-status" style="font-weight:700; color:var(--primary);">Đang tải cẩm nang (118 trang)...</span>
+                <span id="flip-status" style="font-weight:700; color:var(--primary);">Đang tải cẩm nang...</span>
                 <div style="display:flex; gap:10px; flex-wrap:wrap;">
                     <button type="button" class="btn-outline" id="btn-prev-page" style="flex:0 0 auto; cursor:pointer;">&#8249; Trang trước</button>
                     <button type="button" class="btn-fill" id="btn-next-page" style="flex:0 0 auto; cursor:pointer;">Trang sau &#8250;</button>
@@ -237,17 +305,33 @@
                     { src: '8.jpg', label: '15 Gói + Nến Thơm' },
                     { src: '9.jpg', label: '15 Gói + Combo Nến & Túi Thơm' },
                     { src: '4.jpg', label: 'Set 5 Gói Dùng Chung' }
+                ],
+                tuithom: [
+                    { src: '14.jpg', label: 'Túi Thơm - Mẫu 1' },
+                    { src: '15.jpg', label: 'Túi Thơm - Mẫu 2' },
+                    { src: '16.jpg', label: 'Túi Thơm - Mẫu 3' },
+                    { src: '17.jpg', label: 'Túi Thơm - Mẫu 4' }
+                ],
+                nenthom: [
+                    { src: '18.jpg', label: 'Nến Thơm - Mẫu 1' },
+                    { src: '19.jpg', label: 'Nến Thơm - Mẫu 2' },
+                    { src: '20.jpg', label: 'Nến Thơm - Mẫu 3' },
+                    { src: '21.jpg', label: 'Nến Thơm - Mẫu 4' }
                 ]
             };
 
             const shopeeLinks = {
                 lucvi: 'https://shopee.vn/Tr%C3%A0-L%E1%BB%A5c-V%E1%BB%8B-D%C6%B0%E1%BB%A1ng-Nhan-d%C6%B0%E1%BB%A1ng-da-b%E1%BB%95-huy%E1%BA%BFt-n%E1%BB%99i-ti%E1%BA%BFt-(%C4%90%C3%B4ng-tr%C3%B9ng-h%E1%BA%A3o-t%C3%A1o-%C4%91%E1%BB%8F-k%E1%BB%B3-t%E1%BB%AD-hoa-nh%C3%A0i-hoa-c%C3%BAc-v%C3%A0ng-c%E1%BB%8F-ng%E1%BB%8Dt)-i.121955163.45153381029?extraParams=%7B%22display_model_id%22%3A380323199264%2C%22model_selection_logic%22%3A3%7D&image_ids=vn-11134207-81ztc-mpubje6dr8ct96',
-                thientra: 'https://shopee.vn'
+                thientra: 'https://shopee.vn',
+                tuithom: 'https://shopee.vn',
+                nenthom: 'https://shopee.vn'
             };
 
             const productNames = {
                 lucvi: 'Diệu Hảo Thiền Trà Lục Vị',
-                thientra: 'Diệu Hảo Thiền Trà'
+                thientra: 'Diệu Hảo Thiền Trà',
+                tuithom: 'Túi Thơm Thảo Mộc',
+                nenthom: 'Nến Thơm Thảo Mộc'
             };
 
             document.querySelectorAll('.slider').forEach(function(slider) {
@@ -358,144 +442,7 @@
         })();
     </script>
 
-</body>
-</html>
-
-    <script>
-        (function() {
-            const galleries = {
-                lucvi: [
-                    { src: '3.jpg', label: 'Combo Nến & Túi Thơm' },
-                    { src: '4.jpg', label: 'Set 5 Gói Dùng Chung' },
-                    { src: '5.jpg', label: '15 Gói + 01 Túi Thơm' },
-                    { src: '6.jpg', label: '15 Gói + Nến Thơm' }
-                ],
-                thientra: [
-                    { src: '7.jpg', label: '15 Gói + 01 Túi Thơm' },
-                    { src: '8.jpg', label: '15 Gói + Nến Thơm' },
-                    { src: '9.jpg', label: '15 Gói + Combo Nến & Túi Thơm' },
-                    { src: '4.jpg', label: 'Set 5 Gói Dùng Chung' }
-                ]
-            };
-
-            const shopeeLinks = {
-                lucvi: 'https://shopee.vn/Tr%C3%A0-L%E1%BB%A5c-V%E1%BB%8B-D%C6%B0%E1%BB%A1ng-Nhan-d%C6%B0%E1%BB%A1ng-da-b%E1%BB%95-huy%E1%BA%BFt-n%E1%BB%99i-ti%E1%BA%BFt-(%C4%90%C3%B4ng-tr%C3%B9ng-h%E1%BA%A3o-t%C3%A1o-%C4%91%E1%BB%8F-k%E1%BB%B3-t%E1%BB%AD-hoa-nh%C3%A0i-hoa-c%C3%BAc-v%C3%A0ng-c%E1%BB%8F-ng%E1%BB%8Dt)-i.121955163.45153381029?extraParams=%7B%22display_model_id%22%3A380323199264%2C%22model_selection_logic%22%3A3%7D&image_ids=vn-11134207-81ztc-mpubje6dr8ct96',
-                thientra: 'https://shopee.vn'
-            };
-
-            const productNames = {
-                lucvi: 'Diệu Hảo Thiền Trà Lục Vị',
-                thientra: 'Diệu Hảo Thiền Trà'
-            };
-
-            document.querySelectorAll('.slider').forEach(function(slider) {
-                const key = slider.getAttribute('data-product');
-                const items = galleries[key];
-                if (!items) return;
-
-                let currentIdx = 0;
-                const imgEl = slider.querySelector('.main-photo');
-                const counterEl = slider.querySelector('.img-counter');
-                const dots = slider.querySelectorAll('.dot');
-                const prevBtn = slider.querySelector('.prev');
-                const nextBtn = slider.querySelector('.next');
-                const thumbs = document.querySelectorAll('[data-thumbs="' + key + '"] .thumb-btn');
-
-                function showImage(newIdx) {
-                    currentIdx = (newIdx + items.length) % items.length;
-                    imgEl.src = items[currentIdx].src;
-                    imgEl.alt = items[currentIdx].label;
-                    if (counterEl) {
-                        counterEl.textContent = (currentIdx + 1) + ' / ' + items.length;
-                    }
-                    dots.forEach(function(dot, i) {
-                        dot.classList.toggle('active', i === currentIdx);
-                    });
-                    thumbs.forEach(function(thumb, i) {
-                        thumb.classList.toggle('active', i === currentIdx);
-                    });
-                }
-
-                prevBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    showImage(currentIdx - 1);
-                });
-
-                nextBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    showImage(currentIdx + 1);
-                });
-
-                dots.forEach(function(dot) {
-                    dot.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        const idx = parseInt(dot.getAttribute('data-idx'), 10);
-                        if (!isNaN(idx)) showImage(idx);
-                    });
-                });
-
-                thumbs.forEach(function(thumb) {
-                    thumb.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        const idx = parseInt(thumb.getAttribute('data-idx'), 10);
-                        if (!isNaN(idx)) showImage(idx);
-                    });
-                });
-            });
-
-            const modal = document.getElementById('productModal');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalImg = document.getElementById('modalImg');
-            const modalVariants = document.getElementById('modalVariants');
-            const modalShopee = document.getElementById('modalShopee');
-
-            function openModal(key) {
-                const items = galleries[key];
-                if (!items) return;
-                modalTitle.textContent = productNames[key] || '';
-                modalShopee.href = shopeeLinks[key] || 'https://shopee.vn';
-                modalVariants.innerHTML = '';
-
-                items.forEach(function(item, idx) {
-                    const btn = document.createElement('button');
-                    btn.type = 'button';
-                    btn.className = 'var-btn' + (idx === 0 ? ' active' : '');
-                    btn.textContent = item.label;
-                    btn.addEventListener('click', function() {
-                        modalVariants.querySelectorAll('.var-btn').forEach(function(b) {
-                            b.classList.remove('active');
-                        });
-                        btn.classList.add('active');
-                        modalImg.src = item.src;
-                    });
-                    modalVariants.appendChild(btn);
-                });
-
-                modalImg.src = items[0].src;
-                modal.classList.add('open');
-            }
-
-            function closeModal() {
-                modal.classList.remove('open');
-            }
-
-            document.querySelectorAll('[data-open-modal]').forEach(function(el) {
-                el.addEventListener('click', function() {
-                    openModal(el.getAttribute('data-open-modal'));
-                });
-            });
-
-            document.getElementById('closeModalBtn').addEventListener('click', closeModal);
-            document.getElementById('modalContactBtn').addEventListener('click', closeModal);
-            modal.addEventListener('click', function(e) {
-                if (e.target === modal) closeModal();
-            });
-        })();
-    </script>
-<!-- Thư viện đọc PDF và tạo hiệu ứng lật trang 3D -->
+    <!-- Thư viện đọc PDF và tạo hiệu ứng lật trang 3D -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
 
@@ -521,7 +468,6 @@
             }
 
             try {
-                // Tắt worker ngoài để tránh lỗi chặn hoặc xung đột phiên bản trên trình duyệt
                 pdfjsLib.GlobalWorkerOptions.workerSrc = '';
 
                 const loadingTask = pdfjsLib.getDocument({
@@ -605,5 +551,6 @@
             }
         })();
     </script>
+
 </body>
 </html>
