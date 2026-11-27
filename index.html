@@ -112,11 +112,8 @@
         .footer-col p { opacity: 0.92; margin-bottom: 6px; font-size: 0.9rem; }
         .footer-bottom { max-width: 1120px; margin: 22px auto 0; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.18); text-align: center; font-size: 0.85rem; opacity: 0.85; }
 
-        /* Khung Chat Đặt Hàng & Tư Vấn */
-        .chat-fab { position: fixed; right: 20px; bottom: 20px; background: var(--accent); color: #fff; border: none; border-radius: 999px; padding: 13px 18px; font-weight: 700; font-size: 0.92rem; box-shadow: 0 8px 24px rgba(0,0,0,0.22); cursor: pointer; z-index: 250; display: flex; align-items: center; gap: 8px; }
-        .chat-fab:hover { background: #7f552d; }
-
-        .chat-drawer { display: none; position: fixed; right: 20px; bottom: 78px; width: min(390px, calc(100vw - 24px)); max-height: calc(100vh - 98px); background: #fff; border-radius: 16px; box-shadow: 0 12px 36px rgba(0,0,0,0.24); border: 1px solid #e7dfd4; z-index: 260; flex-direction: column; overflow: hidden; }
+        /* Khung Chat Đặt Hàng & Tư Vấn (chỉ mở khi bấm Mua ngay bên trong lựa chọn sản phẩm) */
+        .chat-drawer { display: none; position: fixed; right: 20px; bottom: 20px; width: min(390px, calc(100vw - 24px)); max-height: calc(100vh - 40px); background: #fff; border-radius: 16px; box-shadow: 0 12px 36px rgba(0,0,0,0.24); border: 1px solid #e7dfd4; z-index: 260; flex-direction: column; overflow: hidden; }
         .chat-drawer.open { display: flex; }
 
         .chat-header { background: var(--primary); color: #fff; padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
@@ -208,8 +205,8 @@
                     <div class="card-footer-box">
                         <div class="price">49.000đ – 529.000đ</div>
                         <div class="btn-group">
+                            <button type="button" class="btn-fill" data-open-modal="lucvi">Giá sản phẩm</button>
                             <a href="https://shopee.vn/Tr%C3%A0-L%E1%BB%A5c-V%E1%BB%8B-D%C6%B0%E1%BB%A1ng-Nhan-d%C6%B0%E1%BB%A1ng-da-b%E1%BB%95-huy%E1%BA%BFt-n%E1%BB%99i-ti%E1%BA%BFt-(%C4%90%C3%B4ng-tr%C3%B9ng-h%E1%BA%A3o-t%C3%A1o-%C4%91%E1%BB%8F-k%E1%BB%B3-t%E1%BB%AD-hoa-nh%C3%A0i-hoa-c%C3%BAc-v%C3%A0ng-c%E1%BB%8F-ng%E1%BB%8Dt)-i.121955163.45153381029?extraParams=%7B%22display_model_id%22%3A380323199264%2C%22model_selection_logic%22%3A3%7D&image_ids=vn-11134207-81ztc-mpubje6dr8ct96" target="_blank" class="btn-outline">Shopee</a>
-                            <button type="button" class="btn-fill" data-buy-product="Diệu Hảo Thiền Trà Lục Vị (49.000đ – 529.000đ)">Mua ngay</button>
                         </div>
                     </div>
                 </div>
@@ -244,8 +241,8 @@
                     <div class="card-footer-box">
                         <div class="price">59.000đ – 749.000đ</div>
                         <div class="btn-group">
+                            <button type="button" class="btn-fill" data-open-modal="thientra">Giá sản phẩm</button>
                             <a href="https://shopee.vn/Thi%E1%BB%81n-Tr%C3%A0-Di%E1%BB%87u-H%E1%BA%A3o-Tr%C3%A0-th%E1%BA%A3o-m%E1%BB%99c-thi%C3%AAn-nhi%C3%AAn-h%E1%BB%97-tr%E1%BB%A3-gi%E1%BA%A3m-m%E1%BB%A1-m%C3%A1u-men-gan-Long-nh%C3%A3n-h%E1%BA%A1t-sen-k%E1%BB%B3-t%E1%BB%AD-hoa-c%C3%BAc-v%C3%A0ng-...-i.121955163.47903404427?extraParams=%7B%22display_model_id%22%3A445326747438%2C%22model_selection_logic%22%3A3%7D&image_ids=vn-11134207-81ztc-mpubc74hab5t47" target="_blank" class="btn-outline">Shopee</a>
-                            <button type="button" class="btn-fill" data-buy-product="Diệu Hảo Thiền Trà (59.000đ – 749.000đ)">Mua ngay</button>
                         </div>
                     </div>
                 </div>
@@ -280,8 +277,8 @@
                     <div class="card-footer-box">
                         <div class="price">79.000đ</div>
                         <div class="btn-group">
+                            <button type="button" class="btn-fill" data-open-modal="tuithom">Xem chi tiết</button>
                             <a href="https://shopee.vn/T%C3%BAi-th%C6%A1m-treo-ph%C3%B2ng-th%E1%BA%A3o-m%E1%BB%99c-thi%C3%AAn-nhi%C3%AAn-hoa-h%E1%BB%93ng-hoa-nh%C3%A0i-tr%C3%A0-xanh-qu%E1%BA%BF-lavender-h%C6%B0%C6%A1ng-th%C6%A1m-th%C6%B0-gi%C3%A3n-i.121955163.57413614299?extraParams=%7B%22display_model_id%22%3A287766841571%2C%22model_selection_logic%22%3A3%7D&image_ids=vn-11134207-81ztc-mv1kbv3zr9j76c" target="_blank" class="btn-outline">Shopee</a>
-                            <button type="button" class="btn-fill" data-buy-product="Túi Thơm Thảo Mộc (79.000đ)">Mua ngay</button>
                         </div>
                     </div>
                 </div>
@@ -316,8 +313,8 @@
                     <div class="card-footer-box">
                         <div class="price">139.000đ</div>
                         <div class="btn-group">
+                            <button type="button" class="btn-fill" data-open-modal="nenthom">Xem chi tiết</button>
                             <a href="https://shopee.vn/N%E1%BA%BFn-Th%C6%A1m-H%E1%BB%AFu-C%C6%A1-Thu%E1%BA%A7n-Chay-Handmade-Trang-Tr%C3%AD-Di%E1%BB%87u-H%E1%BA%A3o-Thi%E1%BB%81n-Tr%C3%A0-i.121955163.45313634693?extraParams=%7B%22display_model_id%22%3A292766913316%2C%22model_selection_logic%22%3A3%7D&image_ids=vn-11134207-81ztc-mqeq2z4mrz0se5" target="_blank" class="btn-outline">Shopee</a>
-                            <button type="button" class="btn-fill" data-buy-product="Nến Thơm Thảo Mộc (139.000đ)">Mua ngay</button>
                         </div>
                     </div>
                 </div>
@@ -417,7 +414,7 @@
         </div>
     </section>
 
-    <!-- Hộp chi tiết khi click sản phẩm -->
+    <!-- Hộp lựa chọn bên trong khi ấn Giá sản phẩm / Xem chi tiết -->
     <div id="productModal" class="modal">
         <div class="modal-box">
             <button type="button" class="modal-close" id="closeModalBtn">&times;</button>
@@ -484,12 +481,7 @@
         </div>
     </footer>
 
-    <!-- Nút mở khung chat nhanh -->
-    <button type="button" class="chat-fab" id="openChatFab" aria-label="Mở khung chat đặt hàng">
-        <span>Chat Đặt Hàng</span>
-    </button>
-
-    <!-- Khung chat tương tác trực tiếp -->
+    <!-- Khung chat tương tác trực tiếp (chỉ hiện khi ấn Mua ngay trong hộp lựa chọn sản phẩm) -->
     <div id="chatDrawer" class="chat-drawer" role="dialog" aria-label="Khung chat Diệu Hảo Thiền Trà">
         <div class="chat-header">
             <div>
@@ -503,7 +495,7 @@
         </div>
 
         <div class="chat-product-bar">
-            <span>Sản phẩm: <span class="chat-product-badge" id="chatSelectedProduct">Chưa chọn cụ thể</span></span>
+            <span>Lựa chọn: <span class="chat-product-badge" id="chatSelectedProduct">Chưa chọn cụ thể</span></span>
             <span style="font-size:0.78rem; color:#6c6269;">Hotline: 0345.550.783</span>
         </div>
 
@@ -568,13 +560,11 @@
 
             // Hệ thống khung chat khách <-> admin
             const chatDrawer = document.getElementById('chatDrawer');
-            const openChatFab = document.getElementById('openChatFab');
             const closeChatBtn = document.getElementById('closeChatBtn');
             const toggleRoleBtn = document.getElementById('toggleRoleBtn');
             const chatHeaderTitle = document.getElementById('chatHeaderTitle');
             const chatHeaderSub = document.getElementById('chatHeaderSub');
             const chatSelectedProduct = document.getElementById('chatSelectedProduct');
-            const chatCustomerBar = document.getElementById('chatCustomerBar');
             const chatCustomerName = document.getElementById('chatCustomerName');
             const chatCustomerPhone = document.getElementById('chatCustomerPhone');
             const chatMessagesEl = document.getElementById('chatMessages');
@@ -583,13 +573,12 @@
             const chatSendBtn = document.getElementById('chatSendBtn');
 
             let isAdminMode = false;
-            let activeProductLabel = 'Chưa chọn cụ thể';
             let chatHistory = [
                 {
                     sender: 'admin',
                     author: 'Diệu Hảo Thiền Trà',
                     time: 'Hôm nay',
-                    text: 'Chào bạn, Diệu Hảo Thiền Trà có thể hỗ trợ tư vấn dòng trà hoặc lên đơn nhanh cho bạn.'
+                    text: 'Chào bạn, Diệu Hảo Thiền Trà đã nhận lựa chọn sản phẩm của bạn và sẵn sàng hỗ trợ đặt hàng.'
                 }
             ];
 
@@ -644,10 +633,9 @@
 
             function openChatWithProduct(productText) {
                 if (productText) {
-                    activeProductLabel = productText;
                     chatSelectedProduct.textContent = productText;
                     const lastMsg = chatHistory[chatHistory.length - 1];
-                    const promptText = 'Quan tâm mua: ' + productText;
+                    const promptText = 'Đặt mua lựa chọn: ' + productText;
                     if (!lastMsg || lastMsg.text !== promptText) {
                         chatHistory.push({
                             sender: 'customer',
@@ -662,12 +650,6 @@
                 setTimeout(function() {
                     if (chatInput) chatInput.focus();
                 }, 80);
-            }
-
-            if (openChatFab) {
-                openChatFab.addEventListener('click', function() {
-                    openChatWithProduct('');
-                });
             }
 
             if (closeChatBtn) {
@@ -713,13 +695,6 @@
                     renderMessages();
                 });
             }
-
-            document.querySelectorAll('[data-buy-product]').forEach(function(btn) {
-                btn.addEventListener('click', function() {
-                    const prod = btn.getAttribute('data-buy-product') || '';
-                    openChatWithProduct(prod);
-                });
-            });
 
             renderMessages();
             syncRoleUI();
@@ -863,7 +838,7 @@
                 slider.addEventListener('touchcancel', resetTransforms, { passive: true });
             });
 
-            // Modal chi tiết sản phẩm
+            // Modal lựa chọn khi ấn Giá sản phẩm / Xem chi tiết
             const modal = document.getElementById('productModal');
             const modalTitle = document.getElementById('modalTitle');
             const modalImg = document.getElementById('modalImg');
