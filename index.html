@@ -17,7 +17,7 @@
         /* Thanh điều hướng */
         header { background: #fff; padding: 12px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.06); position: sticky; top: 0; z-index: 100; }
         .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--primary); font-weight: 700; font-size: 1.15rem; }
-        .logo img { height: 50px; width: 50px; object-fit: cover; border-radius: 50%; }
+        .logo img { height: 50px; width: 50px; object-fit: cover; object-position: center top; border-radius: 50%; }
         nav { display: flex; gap: 22px; flex-wrap: wrap; }
         nav a { text-decoration: none; color: var(--text); font-weight: 600; transition: 0.25s; }
         nav a:hover { color: var(--primary); }
@@ -92,7 +92,7 @@
         }
         .feedback-card { background: #fff; border-radius: 14px; padding: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.06); border: 1px solid #efe8de; display: flex; flex-direction: column; gap: 12px; }
         .feedback-head { display: flex; align-items: center; gap: 12px; }
-        .feedback-avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 2px solid #efe4d6; background: #f5ede2; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--primary); font-size: 1rem; }
+        .feedback-avatar { width: 54px; height: 54px; border-radius: 50%; object-fit: cover; object-position: center 20%; flex-shrink: 0; border: 2px solid #e6d8c5; background: #f5ede2; display: block; }
         .feedback-meta { flex: 1; min-width: 0; }
         .feedback-name-row { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
         .feedback-name { color: var(--primary); font-size: 1rem; font-weight: 700; }
@@ -286,15 +286,15 @@
         </div>
     </section>
 
-    <!-- Khu vực Feedback khách hàng (tập trung nữ 25-40 tuổi & dòng trà) -->
+    <!-- Khu vực Feedback khách hàng (tập trung nữ 25-40 tuổi & trải nghiệm thực tế DHTT) -->
     <section id="feedback-khach-hang">
         <h2 class="section-title">Cảm Nhận Từ Khách Hàng</h2>
-        <p class="section-sub">Chia sẻ từ khách hàng nữ văn phòng, kinh doanh và mẹ bỉm sau khi duy trì thói quen thưởng trà mỗi ngày</p>
+        <p class="section-sub">Chia sẻ từ khách hàng nữ 25–40 tuổi về đóng gói, hương vị và thói quen thưởng trà hằng ngày</p>
 
         <div class="feedback-grid">
             <div class="feedback-card">
                 <div class="feedback-head">
-                    <div class="feedback-avatar">MA</div>
+                    <img class="feedback-avatar" src="30.jpg" alt="Nguyễn Minh Anh">
                     <div class="feedback-meta">
                         <div class="feedback-name-row">
                             <span class="feedback-name">Nguyễn Minh Anh, 28 tuổi</span>
@@ -303,12 +303,12 @@
                         <div class="feedback-sub">Hà Nội • Chuyên viên Marketing</div>
                     </div>
                 </div>
-                <p class="feedback-text">"Chạy deadline nhiều nên tối nào mình cũng hay bị căng đầu và ngủ chập chờn. Đổi sang một ly Thiền Trà 11 Vị ấm khoảng 9 giờ tối, vị ngọt dịu từ cỏ ngọt với táo đỏ, thoảng mùi hoa cúc và lá dứa giúp mình thư giãn hẳn."</p>
+                <p class="feedback-text">"Mở gói trà ra thấy nguyên liệu khô sạch sẽ, chia gói sẵn rất tiện để mang theo làm việc. Pha ấm nóng buổi tối hương thảo mộc dịu nhẹ, vị thanh không bị gắt, uống xong thấy giãn đầu óc hẳn."</p>
             </div>
 
             <div class="feedback-card">
                 <div class="feedback-head">
-                    <div class="feedback-avatar">TL</div>
+                    <img class="feedback-avatar" src="31.jpg" alt="Trần Thanh Loan">
                     <div class="feedback-meta">
                         <div class="feedback-name-row">
                             <span class="feedback-name">Trần Thanh Loan, 34 tuổi</span>
@@ -317,54 +317,54 @@
                         <div class="feedback-sub">TP. Hồ Chí Minh • Quản lý nhân sự</div>
                     </div>
                 </div>
-                <p class="feedback-text">"Trước đây tầm 3 giờ chiều là mình hay mua trà sữa hoặc uống cà phê nhưng dễ bị hồi hộp, mất ngủ đêm. Từ lúc chuyển qua Thiền Trà Lục Vị, nước vàng óng, vị thanh nhẹ, uống đều mỗi ngày thấy người nhẹ nhõm hơn hẳn."</p>
+                <p class="feedback-text">"Ấn tượng đầu tiên là đóng gói chỉn chu, rõ ràng. Mình pha Thiền Trà Lục Vị uống buổi chiều thay cho đồ uống nhiều đường, vị thanh nhẹ dễ uống, không bị ngái hay ngọt lợ, dùng đều thấy người nhẹ nhàng hơn."</p>
             </div>
 
             <div class="feedback-card">
                 <div class="feedback-head">
-                    <div class="feedback-avatar">PH</div>
+                    <img class="feedback-avatar" src="32.jpg" alt="Phạm Thu Hằng">
                     <div class="feedback-meta">
                         <div class="feedback-name-row">
                             <span class="feedback-name">Phạm Thu Hằng, 31 tuổi</span>
                             <span class="feedback-tag">Thiền Trà 11 Vị</span>
                         </div>
-                        <div class="feedback-sub">Đà Nẵng • Chủ tiệm thời trang</div>
+                        <div class="feedback-sub">Đà Nẵng • Kinh doanh tự do</div>
                     </div>
                 </div>
-                <p class="feedback-text">"Ngồi máy tính và kiểm hàng cả ngày mắt dễ mỏi, người hay uể oải. Trà không bị ngái thảo mộc như nhiều loại mình từng thử, có chút chua thanh nhẹ của tắc vàng nên uống rất dễ vào."</p>
+                <p class="feedback-text">"Hương thơm tự nhiên, không nồng mùi hương liệu. Những hôm làm việc liên tục mình pha một ly trà ấm để có khoảng dừng chậm lại, vị ngọt thanh quyện chút chua dịu của tắc vàng rất dễ chịu."</p>
             </div>
 
             <div class="feedback-card">
                 <div class="feedback-head">
-                    <div class="feedback-avatar">HT</div>
+                    <img class="feedback-avatar" src="33.jpg" alt="Hoàng Thị Thảo">
                     <div class="feedback-meta">
                         <div class="feedback-name-row">
                             <span class="feedback-name">Hoàng Thị Thảo, 37 tuổi</span>
                             <span class="feedback-tag">Thiền Trà Lục Vị</span>
                         </div>
-                        <div class="feedback-sub">Hải Phòng • Kế toán doanh nghiệp</div>
+                        <div class="feedback-sub">Hải Phòng • Kế toán</div>
                     </div>
                 </div>
-                <p class="feedback-text">"Mùa quyết toán ngồi bàn làm việc liên tục, mình đặt sẵn set túi trà ở văn phòng để pha thay nước ngọt. Hương hoa nhài với kỷ tử, táo đỏ hài hòa, giữ ấm bụng tốt mà không bị ngọt gắt."</p>
+                <p class="feedback-text">"Gói định lượng sẵn nên pha rất nhanh, không phải đong đếm lích kích ở văn phòng. Mình mới dùng được một thời gian ngắn nhưng thấy hương vị thuần khiết, dễ duy trì mỗi ngày, chắc chắn sẽ dùng tiếp để cảm nhận thêm."</p>
             </div>
 
             <div class="feedback-card">
                 <div class="feedback-head">
-                    <div class="feedback-avatar">VL</div>
+                    <img class="feedback-avatar" src="34.jpg" alt="Vũ Khánh Ly">
                     <div class="feedback-meta">
                         <div class="feedback-name-row">
                             <span class="feedback-name">Vũ Khánh Ly, 26 tuổi</span>
                             <span class="feedback-tag">Thiền Trà 11 Vị</span>
                         </div>
-                        <div class="feedback-sub">Hà Nội • Designer tự do</div>
+                        <div class="feedback-sub">Hà Nội • Designer</div>
                     </div>
                 </div>
-                <p class="feedback-text">"Mình thích nhất là nguyên liệu nhìn rõ ràng, hoa trái khô sạch sẽ, pha ra thơm dịu chứ không nồng mùi hương liệu. Buổi tối gác máy tính, pha một bình trà nhỏ là có khoảng lặng để nghỉ ngơi."</p>
+                <p class="feedback-text">"Nhìn cánh hoa, táo đỏ, kỷ tử bên trong thấy khá thật và sạch. Buổi tối gác máy pha ấm trà ngồi thư giãn thấy nhịp sống chậm lại rõ rệt, uống ấm bụng và dễ đi vào giấc ngủ hơn."</p>
             </div>
 
             <div class="feedback-card">
                 <div class="feedback-head">
-                    <div class="feedback-avatar">ĐM</div>
+                    <img class="feedback-avatar" src="35.jpg" alt="Đỗ Ngọc Mai">
                     <div class="feedback-meta">
                         <div class="feedback-name-row">
                             <span class="feedback-name">Đỗ Ngọc Mai, 39 tuổi</span>
@@ -373,7 +373,7 @@
                         <div class="feedback-sub">Bình Dương • Giảng viên</div>
                     </div>
                 </div>
-                <p class="feedback-text">"Nói nhiều và thức soạn bài khuya nên mình rất chú trọng giữ cổ họng và giấc ngủ. Duy trì uống trà thảo mộc đều đặn thấy dễ chịu, sáng dậy tỉnh táo hơn, mình còn mua thêm làm quà tặng chị em đồng nghiệp."</p>
+                <p class="feedback-text">"Mình chọn vì cảm giác minh bạch, thảo mộc tự nhiên không tẩm ướp gắt. Pha uống hằng ngày thấy dịu nhẹ, thư thái, đóng gói lịch sự nên cũng tiện mua thêm làm quà tặng cho người thân, bạn bè."</p>
             </div>
         </div>
     </section>
@@ -496,7 +496,6 @@
                 const slideImgs = Array.from(slider.querySelectorAll('.slide-img'));
                 if (!slideImgs.length) return;
 
-                // Nạp sẵn các ảnh để chuyển nhanh trên điện thoại
                 slideImgs.forEach(function(img) {
                     if (img.complete) return;
                     const pre = new Image();
@@ -565,7 +564,6 @@
                     });
                 });
 
-                // Vuốt nhanh & mượt trên điện thoại
                 let touchStartX = 0;
                 let touchStartY = 0;
                 let swipeTriggered = false;
@@ -601,7 +599,6 @@
                             activeImg.style.opacity = String(Math.max(0.65, 1 - Math.abs(deltaX) / 260));
                         }
 
-                        // Chuyển ngay khi lướt qua 22px để cảm giác nhanh nhạy trên điện thoại
                         if (Math.abs(deltaX) >= 22) {
                             swipeTriggered = true;
                             if (deltaX < 0) {
@@ -744,7 +741,6 @@
                     const displayWidth = Math.max(280, containerWidth);
                     const unscaledViewport = page.getViewport({ scale: 1 });
 
-                    // Tăng độ nét trên điện thoại bằng cách render ở độ phân giải cao (tối thiểu 2.2x chiều rộng hiển thị)
                     const dpr = Math.min(3, Math.max(2.2, window.devicePixelRatio || 2));
                     const renderScale = (displayWidth / unscaledViewport.width) * dpr;
                     const viewport = page.getViewport({ scale: renderScale });
