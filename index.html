@@ -44,7 +44,7 @@
         .card { background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.07); display: flex; flex-direction: column; }
 
         /* Khung ảnh sản phẩm */
-        .slider { position: relative; width: 100%; aspect-ratio: 1 / 1; overflow: hidden; background: #f3efe9; user-select: none; }
+        .slider { position: relative; width: 100%; aspect-ratio: 1 / 1; overflow: hidden; background: #f3efe9; user-select: none; touch-action: pan-y; }
         .slider img.main-photo { width: 100%; height: 100%; object-fit: cover; display: block; }
         .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; border: none; background: rgba(255,255,255,0.95); color: var(--primary); font-size: 1.35rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.22); z-index: 20; }
         .slider-btn:hover { background: #fff; }
@@ -292,7 +292,7 @@
 
         <div class="ebook-container">
             <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:16px;">
-                <span id="flip-status" style="font-weight:700; color:var(--primary);">Đang tải cẩm nang...</span>
+                <span id="flip-status" style="font-weight:700; color:var(--primary);">Trang 1 / 122</span>
                 <div style="display:flex; gap:10px; flex-wrap:wrap;">
                     <button type="button" class="btn-outline" id="btn-prev-page" style="flex:0 0 auto; cursor:pointer;">&#8249; Trang trước</button>
                     <button type="button" class="btn-fill" id="btn-next-page" style="flex:0 0 auto; cursor:pointer;">Trang sau &#8250;</button>
@@ -433,6 +433,29 @@
                         if (!isNaN(idx)) showImage(idx);
                     });
                 });
+
+                // Hỗ trợ kéo lướt ngang (swipe) trên màn hình điện thoại
+                let touchStartX = 0;
+                let touchStartY = 0;
+
+                slider.addEventListener('touchstart', function(e) {
+                    if (!e.touches || e.touches.length !== 1) return;
+                    touchStartX = e.touches[0].clientX;
+                    touchStartY = e.touches[0].clientY;
+                }, { passive: true });
+
+                slider.addEventListener('touchend', function(e) {
+                    if (!e.changedTouches || e.changedTouches.length !== 1) return;
+                    const deltaX = e.changedTouches[0].clientX - touchStartX;
+                    const deltaY = e.changedTouches[0].clientY - touchStartY;
+                    if (Math.abs(deltaX) > 35 && Math.abs(deltaX) > Math.abs(deltaY)) {
+                        if (deltaX < 0) {
+                            showImage(currentIdx + 1);
+                        } else {
+                            showImage(currentIdx - 1);
+                        }
+                    }
+                }, { passive: true });
             });
 
             const modal = document.getElementById('productModal');
@@ -507,23 +530,62 @@
             const statusEl = document.getElementById('flip-status');
             const wrapperEl = document.getElementById('flipbook-wrapper');
             const bookContainer = document.getElementById('pdf-flipbook');
+            const prevBtn = document.getElementById('btn-prev-page');
+            const nextBtn = document.getElementById('btn-next-page');
 
-            function fallbackIframe(reasonText) {
-                if (statusEl) statusEl.textContent = reasonText || 'Đang hiển thị bản đọc PDF trực tiếp';
-                if (wrapperEl) {
-                    wrapperEl.style.display = 'block';
-                    wrapperEl.style.padding = '0';
-                    wrapperEl.innerHTML = '<iframe src="' + pdfUrl + '" style="width:100%; height:620px; border:none; border-radius:10px; display:block;" title="Cẩm nang PDF"></iframe>';
+            let currentPageNum = 1;
+            let totalPagesCount = 122;
+            let pageFlipInstance = null;
+            let iframeEl = null;
+
+            function updatePageStatus() {
+                if (statusEl) {
+                    statusEl.textContent = 'Trang ' + currentPageNum + ' / ' + totalPagesCount;
                 }
             }
 
+            function goToPage(targetPage) {
+                const clamped = Math.max(1, Math.min(totalPagesCount, targetPage));
+                currentPageNum = clamped;
+                updatePageStatus();
+
+                if (pageFlipInstance) {
+                    pageFlipInstance.flip(clamped - 1);
+                } else if (iframeEl) {
+                    iframeEl.src = pdfUrl + '#page=' + clamped;
+                }
+            }
+
+            function fallbackIframe() {
+                pageFlipInstance = null;
+                if (wrapperEl) {
+                    wrapperEl.style.display = 'block';
+                    wrapperEl.style.padding = '0';
+                    wrapperEl.innerHTML = '<iframe id="pdf-fallback-iframe" src="' + pdfUrl + '#page=' + currentPageNum + '" style="width:100%; height:620px; border:none; border-radius:10px; display:block;" title="Cẩm nang PDF"></iframe>';
+                    iframeEl = document.getElementById('pdf-fallback-iframe');
+                }
+                updatePageStatus();
+            }
+
+            if (prevBtn) {
+                prevBtn.addEventListener('click', function() {
+                    goToPage(currentPageNum - 1);
+                });
+            }
+
+            if (nextBtn) {
+                nextBtn.addEventListener('click', function() {
+                    goToPage(currentPageNum + 1);
+                });
+            }
+
             if (!bookContainer || typeof pdfjsLib === 'undefined' || typeof St === 'undefined') {
-                fallbackIframe('Không tải được hiệu ứng lật trang, đang mở chế độ xem PDF.');
+                fallbackIframe();
                 return;
             }
 
             try {
-                pdfjsLib.GlobalWorkerOptions.workerSrc = '';
+                pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
                 const loadingTask = pdfjsLib.getDocument({
                     url: pdfUrl,
@@ -532,16 +594,18 @@
                 });
 
                 const pdf = await loadingTask.promise;
-                const totalPages = pdf.numPages;
-                const renderedPages = new Set();
+                totalPagesCount = pdf.numPages || 122;
+                currentPageNum = 1;
+                updatePageStatus();
 
+                const renderedPages = new Set();
                 const firstPage = await pdf.getPage(1);
                 const baseViewport = firstPage.getViewport({ scale: 1 });
                 const pageWidth = 420;
                 const pageHeight = Math.max(380, Math.round(pageWidth * (baseViewport.height / baseViewport.width)));
 
                 bookContainer.innerHTML = '';
-                for (let i = 1; i <= totalPages; i++) {
+                for (let i = 1; i <= totalPagesCount; i++) {
                     const pageDiv = document.createElement('div');
                     pageDiv.style.background = '#fffdf9';
                     pageDiv.style.boxShadow = '0 0 12px rgba(0,0,0,0.12)';
@@ -553,7 +617,7 @@
                 }
 
                 async function renderPage(pageNum) {
-                    if (pageNum < 1 || pageNum > totalPages || renderedPages.has(pageNum)) return;
+                    if (pageNum < 1 || pageNum > totalPagesCount || renderedPages.has(pageNum)) return;
                     renderedPages.add(pageNum);
 
                     const page = await pdf.getPage(pageNum);
@@ -569,7 +633,7 @@
                     await page.render({ canvasContext: ctx, viewport: viewport }).promise;
                 }
 
-                const pageFlip = new St.PageFlip(bookContainer, {
+                pageFlipInstance = new St.PageFlip(bookContainer, {
                     width: pageWidth,
                     height: pageHeight,
                     size: 'stretch',
@@ -582,27 +646,22 @@
                     useMouseEvents: true
                 });
 
-                pageFlip.loadFromHTML(bookContainer.children);
+                pageFlipInstance.loadFromHTML(bookContainer.children);
 
                 await Promise.all([renderPage(1), renderPage(2), renderPage(3), renderPage(4)]);
-                if (statusEl) statusEl.textContent = 'Trang 1 / ' + totalPages;
+                updatePageStatus();
 
-                pageFlip.on('flip', function(e) {
-                    const current = e.data + 1;
-                    if (statusEl) statusEl.textContent = 'Trang ' + current + ' / ' + totalPages;
-                    for (let p = current - 2; p <= current + 4; p++) {
+                pageFlipInstance.on('flip', function(e) {
+                    currentPageNum = e.data + 1;
+                    updatePageStatus();
+                    for (let p = currentPageNum - 2; p <= currentPageNum + 4; p++) {
                         renderPage(p);
                     }
                 });
 
-                const prevBtn = document.getElementById('btn-prev-page');
-                const nextBtn = document.getElementById('btn-next-page');
-                if (prevBtn) prevBtn.addEventListener('click', function() { pageFlip.flipPrev(); });
-                if (nextBtn) nextBtn.addEventListener('click', function() { pageFlip.flipNext(); });
-
             } catch (err) {
                 console.error('PDF Flipbook error:', err);
-                fallbackIframe('Trình lật trang gặp sự cố với file PDF, đang mở trình đọc PDF.');
+                fallbackIframe();
             }
         })();
     </script>
