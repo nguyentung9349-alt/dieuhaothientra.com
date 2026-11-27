@@ -82,6 +82,17 @@
         .var-btn { padding: 8px 12px; border: 1px solid #ccc; background: #fff; border-radius: 6px; cursor: pointer; font-size: 0.88rem; }
         .var-btn.active { border-color: var(--primary); background: var(--primary); color: #fff; font-weight: 600; }
 
+        /* Khu vực Feedback khách hàng */
+        .feedback-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+        @media (max-width: 860px) {
+            .feedback-grid { grid-template-columns: 1fr; }
+        }
+        .feedback-card { background: #fff; border-radius: 14px; padding: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.06); border: 1px solid #efe8de; display: flex; flex-direction: column; gap: 10px; }
+        .feedback-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+        .feedback-top strong { color: var(--primary); font-size: 1.02rem; }
+        .feedback-tag { font-size: 0.78rem; font-weight: 600; color: var(--accent); background: #faf3ea; padding: 4px 10px; border-radius: 20px; }
+        .feedback-text { font-size: 0.92rem; color: #554d53; text-align: justify; }
+
         /* Khung Ebook Dưỡng Nhan */
         .ebook-container { background: #fff; padding: 24px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.07); }
 
@@ -101,6 +112,7 @@
         </a>
         <nav>
             <a href="#san-pham">Sản phẩm</a>
+            <a href="#feedback-khach-hang">Feedback</a>
             <a href="#cam-nang">Ebook Dưỡng Nhan</a>
             <a href="#lien-he">Liên hệ</a>
         </nav>
@@ -267,6 +279,38 @@
         </div>
     </section>
 
+    <!-- Khu vực Feedback khách hàng (ngay bên dưới sản phẩm và trên ebook) -->
+    <section id="feedback-khach-hang">
+        <h2 class="section-title">Cảm Nhận Từ Khách Hàng</h2>
+        <p class="section-sub">Những chia sẻ thực tế sau khi trải nghiệm trà thảo mộc, túi thơm và nến thơm Diệu Hảo Thiền Trà</p>
+
+        <div class="feedback-grid">
+            <div class="feedback-card">
+                <div class="feedback-top">
+                    <strong>Minh Anh</strong>
+                    <span class="feedback-tag">Thiền Trà 11 Vị</span>
+                </div>
+                <p class="feedback-text">"Mình hay thức khuya làm việc nên trước đây hay trằn trọc. Pha một ấm trà buổi tối thấy vị ngọt thanh dịu, mùi hoa cúc với lá dứa dễ chịu, uống xong nhẹ người hẳn."</p>
+            </div>
+
+            <div class="feedback-card">
+                <div class="feedback-top">
+                    <strong>Hoàng Nam</strong>
+                    <span class="feedback-tag">Thiền Trà Lục Vị</span>
+                </div>
+                <p class="feedback-text">"Trà dễ uống, không bị gắt cổ hay quá ngọt. Buổi sáng hoặc đầu giờ chiều làm việc thay một ly trà ấm giúp tỉnh táo nhẹ nhàng mà không bị cồn cào như cà phê."</p>
+            </div>
+
+            <div class="feedback-card">
+                <div class="feedback-top">
+                    <strong>Thu Hà</strong>
+                    <span class="feedback-tag">Túi Thơm &amp; Nến Thơm</span>
+                </div>
+                <p class="feedback-text">"Túi thơm treo tủ đồ và góc bàn làm việc tỏa mùi nhẹ nhàng, không bị nồng gắt. Tối đốt nến thơm đọc sách khoảng 30 phút thấy không gian thư giãn hơn nhiều."</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Hộp chi tiết khi click sản phẩm -->
     <div id="productModal" class="modal">
         <div class="modal-box">
@@ -286,8 +330,7 @@
     </div>
 
     <section id="cam-nang">
-        <h2 class="section-title">Cẩm Nang Dưỡng Nhan &amp; Trà Thảo Mộc</h2>
-        <p class="section-sub">Kéo mép trang, bấm nút chuyển trang hoặc nhập số trang bất kỳ để mở trực tiếp từ file So_Tay_Tra_Dieu_Hao_V12.pdf</p>
+        <h2 class="section-title">Cẩm Nang Trà Thảo Mộc Dưỡng Nhan</h2>
 
         <div class="ebook-container">
             <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:16px;">
