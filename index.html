@@ -111,38 +111,6 @@
         .footer-col h4 { font-size: 1.05rem; margin-bottom: 10px; color: #f5e6d3; }
         .footer-col p { opacity: 0.92; margin-bottom: 6px; font-size: 0.9rem; }
         .footer-bottom { max-width: 1120px; margin: 22px auto 0; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.18); text-align: center; font-size: 0.85rem; opacity: 0.85; }
-
-        /* Khung Chat Đặt Hàng & Tư Vấn (chỉ mở khi bấm Mua ngay bên trong lựa chọn sản phẩm) */
-        .chat-drawer { display: none; position: fixed; right: 20px; bottom: 20px; width: min(390px, calc(100vw - 24px)); max-height: calc(100vh - 40px); background: #fff; border-radius: 16px; box-shadow: 0 12px 36px rgba(0,0,0,0.24); border: 1px solid #e7dfd4; z-index: 260; flex-direction: column; overflow: hidden; }
-        .chat-drawer.open { display: flex; }
-
-        .chat-header { background: var(--primary); color: #fff; padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
-        .chat-header-title { font-size: 0.98rem; font-weight: 700; }
-        .chat-header-sub { font-size: 0.78rem; opacity: 0.88; }
-        .chat-header-actions { display: flex; align-items: center; gap: 6px; }
-        .chat-role-btn { background: rgba(255,255,255,0.16); color: #fff; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; padding: 4px 8px; font-size: 0.76rem; font-weight: 600; cursor: pointer; }
-        .chat-role-btn.admin-active { background: var(--accent); border-color: #fff; }
-        .chat-close-btn { background: none; border: none; color: #fff; font-size: 1.35rem; line-height: 1; cursor: pointer; padding: 0 4px; }
-
-        .chat-product-bar { background: #faf4ec; padding: 8px 14px; border-bottom: 1px solid #ede4d8; font-size: 0.84rem; color: var(--primary); display: flex; justify-content: space-between; align-items: center; gap: 8px; }
-        .chat-product-badge { font-weight: 700; }
-
-        .chat-customer-info { padding: 10px 14px; background: #fcfaf7; border-bottom: 1px solid #efe8de; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-        .chat-customer-info input { width: 100%; padding: 7px 10px; border: 1px solid #d8cfc4; border-radius: 6px; font-size: 0.84rem; color: var(--text); }
-
-        .chat-messages { flex: 1; min-height: 220px; max-height: 310px; overflow-y: auto; padding: 14px; display: flex; flex-direction: column; gap: 10px; background: #f8f5f0; }
-        .msg-row { display: flex; flex-direction: column; max-width: 84%; }
-        .msg-row.customer { align-self: flex-end; align-items: flex-end; }
-        .msg-row.admin { align-self: flex-start; align-items: flex-start; }
-        .msg-meta { font-size: 0.74rem; color: #756b72; margin-bottom: 3px; }
-        .msg-bubble { padding: 9px 12px; border-radius: 12px; font-size: 0.88rem; word-break: break-word; }
-        .msg-row.customer .msg-bubble { background: var(--primary); color: #fff; border-bottom-right-radius: 3px; }
-        .msg-row.admin .msg-bubble { background: #fff; color: var(--text); border: 1px solid #e5ddd2; border-bottom-left-radius: 3px; }
-
-        .chat-input-area { padding: 10px 12px; background: #fff; border-top: 1px solid #ece4d9; display: flex; gap: 8px; }
-        .chat-input-area input { flex: 1; padding: 9px 11px; border: 1px solid #d4cbc0; border-radius: 8px; font-size: 0.88rem; }
-        .chat-send-btn { background: var(--primary); color: #fff; border: none; border-radius: 8px; padding: 9px 14px; font-weight: 600; font-size: 0.88rem; cursor: pointer; }
-        .chat-send-btn.admin-mode { background: var(--accent); }
     </style>
 </head>
 <body>
@@ -278,7 +246,7 @@
                         <div class="price">79.000đ</div>
                         <div class="btn-group">
                             <button type="button" class="btn-fill" data-open-modal="tuithom">Xem chi tiết</button>
-                            <a href="https://shopee.vn/T%C3%BAi-th%C6%A1m-treo-ph%C3%B2ng-th%E1%BA%A3o-m%E1%BB%99c-thi%C3%AAn-nhi%C3%AAn-hoa-h%E1%BB%93ng-hoa-nh%C3%A0i-tr%C3%A0-xanh-qu%E1%BA%BF-lavender-h%C6%B0%C6%A1ng-th%C6%A1m-th%C6%B0-gi%C3%A3n-i.121955163.57413614299?extraParams=%7B%22display_model_id%22%3A287766841571%2C%22model_selection_logic%22%3A3%7D&image_ids=vn-11134207-81ztc-mv1kbv3zr9j76c" target="_blank" class="btn-outline">Shopee</a>
+                            <a href="https://shopee.vn/T%C3%BAi-th%C6%A1m-treo-ph%C3%B2ng-th%E1%BA%A3o-m%E1%BB%99c-thi%C3%AAn-nhi%C3%AAn-hoa-h%E1%BB%93ng-hoa-nh%C3%A0i-tr%C3%A0-xanh-qu%E1%BA%BF-lavender-h%C6%B0%C6%A1ng-th%C6%A1m-th%C6%B0-gi%E3%A3n-i.121955163.57413614299?extraParams=%7B%22display_model_id%22%3A287766841571%2C%22model_selection_logic%22%3A3%7D&image_ids=vn-11134207-81ztc-mv1kbv3zr9j76c" target="_blank" class="btn-outline">Shopee</a>
                         </div>
                     </div>
                 </div>
@@ -322,11 +290,10 @@
         </div>
     </section>
 
-    <!-- Khu vực Feedback khách hàng (tập trung nữ 25-40 tuổi & trải nghiệm thực tế DHTT) -->
+    <!-- Khu vực Feedback khách hàng -->
     <section id="feedback-khach-hang">
         <h2 class="section-title">Cảm Nhận Từ Khách Hàng</h2>
-      
-
+        
         <div class="feedback-grid">
             <div class="feedback-card">
                 <div class="feedback-head">
@@ -481,37 +448,6 @@
         </div>
     </footer>
 
-    <!-- Khung chat tương tác trực tiếp (chỉ hiện khi ấn Mua ngay trong hộp lựa chọn sản phẩm) -->
-    <div id="chatDrawer" class="chat-drawer" role="dialog" aria-label="Khung chat Diệu Hảo Thiền Trà">
-        <div class="chat-header">
-            <div>
-                <div class="chat-header-title" id="chatHeaderTitle">Diệu Hảo Thiền Trà • Hỗ trợ đặt hàng</div>
-                <div class="chat-header-sub" id="chatHeaderSub">Đang trò chuyện với tư vấn viên</div>
-            </div>
-            <div class="chat-header-actions">
-                <button type="button" class="chat-role-btn" id="toggleRoleBtn" title="Chuyển giữa chế độ Khách và Admin">Admin</button>
-                <button type="button" class="chat-close-btn" id="closeChatBtn" aria-label="Đóng khung chat">&times;</button>
-            </div>
-        </div>
-
-        <div class="chat-product-bar">
-            <span>Lựa chọn: <span class="chat-product-badge" id="chatSelectedProduct">Chưa chọn cụ thể</span></span>
-            <span style="font-size:0.78rem; color:#6c6269;">Hotline: 0345.550.783</span>
-        </div>
-
-        <div class="chat-customer-info" id="chatCustomerBar">
-            <input type="text" id="chatCustomerName" placeholder="Tên của bạn...">
-            <input type="text" id="chatCustomerPhone" placeholder="SĐT / Zalo nhận đơn...">
-        </div>
-
-        <div class="chat-messages" id="chatMessages"></div>
-
-        <form class="chat-input-area" id="chatForm">
-            <input type="text" id="chatInput" placeholder="Nhập tin nhắn hoặc số lượng muốn đặt..." autocomplete="off">
-            <button type="submit" class="chat-send-btn" id="chatSendBtn">Gửi</button>
-        </form>
-    </div>
-
     <script>
         (function() {
             const productDetails = {
@@ -554,150 +490,27 @@
             const shopeeLinks = {
                 lucvi: 'https://shopee.vn/Tr%C3%A0-L%E1%BB%A5c-V%E1%BB%8B-D%C6%B0%E1%BB%A1ng-Nhan-d%C6%B0%E1%BB%A1ng-da-b%E1%BB%95-huy%E1%BA%BFt-n%E1%BB%99i-ti%E1%BA%BFt-(%C4%90%C3%B4ng-tr%C3%B9ng-h%E1%BA%A3o-t%C3%A1o-%C4%91%E1%BB%8F-k%E1%BB%B3-t%E1%BB%AD-hoa-nh%C3%A0i-hoa-c%C3%BAc-v%C3%A0ng-c%E1%BB%8F-ng%E1%BB%8Dt)-i.121955163.45153381029?extraParams=%7B%22display_model_id%22%3A380323199264%2C%22model_selection_logic%22%3A3%7D&image_ids=vn-11134207-81ztc-mpubje6dr8ct96',
                 thientra: 'https://shopee.vn/Thi%E1%BB%81n-Tr%C3%A0-Di%E1%BB%87u-H%E1%BA%A3o-Tr%C3%A0-th%E1%BA%A3o-m%E1%BB%99c-thi%C3%AAn-nhi%C3%AAn-h%E1%BB%97-tr%E1%BB%A3-gi%E1%BA%A3m-m%E1%BB%A1-m%C3%A1u-men-gan-Long-nh%C3%A3n-h%E1%BA%A1t-sen-k%E1%BB%B3-t%E1%BB%AD-hoa-c%C3%BAc-v%C3%A0ng-...-i.121955163.47903404427?extraParams=%7B%22display_model_id%22%3A445326747438%2C%22model_selection_logic%22%3A3%7D&image_ids=vn-11134207-81ztc-mpubc74hab5t47',
-                tuithom: 'https://shopee.vn/T%C3%BAi-th%C6%A1m-treo-ph%C3%B2ng-th%E1%BA%A3o-m%E1%BB%99c-thi%C3%AAn-nhi%C3%AAn-hoa-h%E1%BB%93ng-hoa-nh%C3%A0i-tr%C3%A0-xanh-qu%E1%BA%BF-lavender-h%C6%B0%C6%A1ng-th%C6%A1m-th%C6%B0-gi%C3%A3n-i.121955163.57413614299?extraParams=%7B%22display_model_id%22%3A287766841571%2C%22model_selection_logic%22%3A3%7D&image_ids=vn-11134207-81ztc-mv1kbv3zr9j76c',
+                tuithom: 'https://shopee.vn/T%C3%BAi-th%C6%A1m-treo-ph%C3%B2ng-th%E1%BA%A3o-m%E1%BB%99c-thi%C3%AAn-nhi%C3%AAn-hoa-h%E1%BB%93ng-hoa-nh%C3%A0i-tr%C3%A0-xanh-qu%E1%BA%BF-lavender-h%C6%B0%C6%A1ng-th%C6%A1m-th%C6%B0-gi%E3%A3n-i.121955163.57413614299?extraParams=%7B%22display_model_id%22%3A287766841571%2C%22model_selection_logic%22%3A3%7D&image_ids=vn-11134207-81ztc-mv1kbv3zr9j76c',
                 nenthom: 'https://shopee.vn/N%E1%BA%BFn-Th%C6%A1m-H%E1%BB%AFu-C%C6%A1-Thu%E1%BA%A7n-Chay-Handmade-Trang-Tr%C3%AD-Di%E1%BB%87u-H%E1%BA%A3o-Thi%E1%BB%81n-Tr%C3%A0-i.121955163.45313634693?extraParams=%7B%22display_model_id%22%3A292766913316%2C%22model_selection_logic%22%3A3%7D&image_ids=vn-11134207-81ztc-mqeq2z4mrz0se5'
             };
 
-            // Hệ thống khung chat khách <-> admin
-            const chatDrawer = document.getElementById('chatDrawer');
-            const closeChatBtn = document.getElementById('closeChatBtn');
-            const toggleRoleBtn = document.getElementById('toggleRoleBtn');
-            const chatHeaderTitle = document.getElementById('chatHeaderTitle');
-            const chatHeaderSub = document.getElementById('chatHeaderSub');
-            const chatSelectedProduct = document.getElementById('chatSelectedProduct');
-            const chatCustomerName = document.getElementById('chatCustomerName');
-            const chatCustomerPhone = document.getElementById('chatCustomerPhone');
-            const chatMessagesEl = document.getElementById('chatMessages');
-            const chatForm = document.getElementById('chatForm');
-            const chatInput = document.getElementById('chatInput');
-            const chatSendBtn = document.getElementById('chatSendBtn');
-
-            let isAdminMode = false;
-            let chatHistory = [
-                {
-                    sender: 'admin',
-                    author: 'Diệu Hảo Thiền Trà',
-                    time: 'Hôm nay',
-                    text: 'Chào bạn, Diệu Hảo Thiền Trà đã nhận lựa chọn sản phẩm của bạn và sẵn sàng hỗ trợ đặt hàng.'
-                }
-            ];
-
-            function getCurrentTimeStr() {
-                const now = new Date();
-                const hh = String(now.getHours()).padStart(2, '0');
-                const mm = String(now.getMinutes()).padStart(2, '0');
-                return hh + ':' + mm;
-            }
-
-            function renderMessages() {
-                if (!chatMessagesEl) return;
-                chatMessagesEl.innerHTML = '';
-                chatHistory.forEach(function(item) {
-                    const row = document.createElement('div');
-                    row.className = 'msg-row ' + (item.sender === 'admin' ? 'admin' : 'customer');
-
-                    const meta = document.createElement('div');
-                    meta.className = 'msg-meta';
-                    meta.textContent = item.author + ' • ' + item.time;
-
-                    const bubble = document.createElement('div');
-                    bubble.className = 'msg-bubble';
-                    bubble.textContent = item.text;
-
-                    row.appendChild(meta);
-                    row.appendChild(bubble);
-                    chatMessagesEl.appendChild(row);
-                });
-                chatMessagesEl.scrollTop = chatMessagesEl.scrollHeight;
-            }
-
-            function syncRoleUI() {
-                if (isAdminMode) {
-                    toggleRoleBtn.textContent = 'Chế độ Khách';
-                    toggleRoleBtn.classList.add('admin-active');
-                    chatHeaderTitle.textContent = 'Kênh Admin • Diệu Hảo Thiền Trà';
-                    chatHeaderSub.textContent = 'Đang phản hồi trực tiếp với khách hàng';
-                    chatSendBtn.textContent = 'Trả lời';
-                    chatSendBtn.classList.add('admin-mode');
-                    chatInput.placeholder = 'Nhập tin nhắn phản hồi cho khách...';
-                } else {
-                    toggleRoleBtn.textContent = 'Admin';
-                    toggleRoleBtn.classList.remove('admin-active');
-                    chatHeaderTitle.textContent = 'Diệu Hảo Thiền Trà • Hỗ trợ đặt hàng';
-                    chatHeaderSub.textContent = 'Nhắn tin để đặt mua hoặc tư vấn sản phẩm';
-                    chatSendBtn.textContent = 'Gửi';
-                    chatSendBtn.classList.remove('admin-mode');
-                    chatInput.placeholder = 'Nhập tin nhắn hoặc số lượng muốn đặt...';
-                }
-            }
-
-            function openChatWithProduct(productText) {
-                if (productText) {
-                    chatSelectedProduct.textContent = productText;
-                    const lastMsg = chatHistory[chatHistory.length - 1];
-                    const promptText = 'Đặt mua lựa chọn: ' + productText;
-                    if (!lastMsg || lastMsg.text !== promptText) {
-                        chatHistory.push({
-                            sender: 'customer',
-                            author: (chatCustomerName && chatCustomerName.value.trim()) || 'Khách hàng',
-                            time: getCurrentTimeStr(),
-                            text: promptText
-                        });
-                        renderMessages();
+            function openTawkChatWithSelection(selectionText) {
+                if (typeof window.Tawk_API !== 'undefined') {
+                    try {
+                        if (typeof window.Tawk_API.setAttributes === 'function') {
+                            window.Tawk_API.setAttributes({ 'San pham chon': selectionText }, function() {});
+                        }
+                        if (typeof window.Tawk_API.addEvent === 'function') {
+                            window.Tawk_API.addEvent('mua-ngay-chon-san-pham', { san_pham: selectionText }, function() {});
+                        }
+                        if (typeof window.Tawk_API.maximize === 'function') {
+                            window.Tawk_API.maximize();
+                        }
+                    } catch (err) {
+                        console.error('Lỗi mở khung chat Tawk.to:', err);
                     }
                 }
-                chatDrawer.classList.add('open');
-                setTimeout(function() {
-                    if (chatInput) chatInput.focus();
-                }, 80);
             }
-
-            if (closeChatBtn) {
-                closeChatBtn.addEventListener('click', function() {
-                    chatDrawer.classList.remove('open');
-                });
-            }
-
-            if (toggleRoleBtn) {
-                toggleRoleBtn.addEventListener('click', function() {
-                    isAdminMode = !isAdminMode;
-                    syncRoleUI();
-                });
-            }
-
-            if (chatForm) {
-                chatForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    const content = chatInput ? chatInput.value.trim() : '';
-                    if (!content) return;
-
-                    const cusName = (chatCustomerName && chatCustomerName.value.trim()) || 'Khách hàng';
-                    const cusPhone = (chatCustomerPhone && chatCustomerPhone.value.trim()) || '';
-
-                    if (isAdminMode) {
-                        chatHistory.push({
-                            sender: 'admin',
-                            author: 'Admin Diệu Hảo',
-                            time: getCurrentTimeStr(),
-                            text: content
-                        });
-                    } else {
-                        const contactNote = cusPhone ? ' (' + cusPhone + ')' : '';
-                        chatHistory.push({
-                            sender: 'customer',
-                            author: cusName + contactNote,
-                            time: getCurrentTimeStr(),
-                            text: content
-                        });
-                    }
-
-                    chatInput.value = '';
-                    renderMessages();
-                });
-            }
-
-            renderMessages();
-            syncRoleUI();
 
             // Slider sản phẩm
             document.querySelectorAll('.slider').forEach(function(slider) {
@@ -903,7 +716,7 @@
                 modalBuyNowBtn.addEventListener('click', function() {
                     const chosen = currentModalSelection || modalTitle.textContent || 'Sản phẩm Diệu Hảo Thiền Trà';
                     closeModal();
-                    openChatWithProduct(chosen);
+                    openTawkChatWithSelection(chosen);
                 });
             }
 
@@ -1065,6 +878,20 @@
             }
         })();
     </script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/6b091e70897ed63cb9e09655/1k8dptpso';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
 
 </body>
 </html>
