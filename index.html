@@ -43,9 +43,9 @@
         }
         .card { background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.07); display: flex; flex-direction: column; }
 
-        /* Khung ảnh sản phẩm */
-        .slider { position: relative; width: 100%; aspect-ratio: 1 / 1; overflow: hidden; background: #f3efe9; user-select: none; touch-action: pan-y; }
-        .slider img.main-photo { width: 100%; height: 100%; object-fit: cover; display: block; }
+        /* Khung ảnh sản phẩm mượt trên điện thoại */
+        .slider { position: relative; width: 100%; aspect-ratio: 1 / 1; overflow: hidden; background: #f3efe9; user-select: none; -webkit-user-select: none; touch-action: pan-y pinch-zoom; }
+        .slider img.main-photo { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s ease; will-change: transform, opacity; }
         .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; border: none; background: rgba(255,255,255,0.95); color: var(--primary); font-size: 1.35rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.22); z-index: 20; }
         .slider-btn:hover { background: #fff; }
         .slider-btn.prev { left: 12px; }
@@ -84,14 +84,21 @@
 
         /* Khu vực Feedback khách hàng */
         .feedback-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
-        @media (max-width: 860px) {
+        @media (max-width: 900px) {
+            .feedback-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (max-width: 620px) {
             .feedback-grid { grid-template-columns: 1fr; }
         }
-        .feedback-card { background: #fff; border-radius: 14px; padding: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.06); border: 1px solid #efe8de; display: flex; flex-direction: column; gap: 10px; }
-        .feedback-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
-        .feedback-top strong { color: var(--primary); font-size: 1.02rem; }
-        .feedback-tag { font-size: 0.78rem; font-weight: 600; color: var(--accent); background: #faf3ea; padding: 4px 10px; border-radius: 20px; }
-        .feedback-text { font-size: 0.92rem; color: #554d53; text-align: justify; }
+        .feedback-card { background: #fff; border-radius: 14px; padding: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.06); border: 1px solid #efe8de; display: flex; flex-direction: column; gap: 12px; }
+        .feedback-head { display: flex; align-items: center; gap: 12px; }
+        .feedback-avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 2px solid #efe4d6; background: #f5ede2; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--primary); font-size: 1rem; }
+        .feedback-meta { flex: 1; min-width: 0; }
+        .feedback-name-row { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .feedback-name { color: var(--primary); font-size: 1rem; font-weight: 700; }
+        .feedback-tag { font-size: 0.76rem; font-weight: 600; color: var(--accent); background: #faf3ea; padding: 3px 9px; border-radius: 20px; white-space: nowrap; }
+        .feedback-sub { font-size: 0.84rem; color: #6c6269; margin-top: 2px; }
+        .feedback-text { font-size: 0.92rem; color: #4a4248; text-align: justify; }
 
         /* Khung Ebook Dưỡng Nhan */
         .ebook-container { background: #fff; padding: 24px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.07); }
@@ -279,34 +286,94 @@
         </div>
     </section>
 
-    <!-- Khu vực Feedback khách hàng (ngay bên dưới sản phẩm và trên ebook) -->
+    <!-- Khu vực Feedback khách hàng (tập trung nữ 25-40 tuổi & dòng trà) -->
     <section id="feedback-khach-hang">
         <h2 class="section-title">Cảm Nhận Từ Khách Hàng</h2>
-        <p class="section-sub">Những chia sẻ thực tế sau khi trải nghiệm trà thảo mộc, túi thơm và nến thơm Diệu Hảo Thiền Trà</p>
+        <p class="section-sub">Chia sẻ từ khách hàng nữ văn phòng, kinh doanh và mẹ bỉm sau khi duy trì thói quen thưởng trà mỗi ngày</p>
 
         <div class="feedback-grid">
             <div class="feedback-card">
-                <div class="feedback-top">
-                    <strong>Minh Anh</strong>
-                    <span class="feedback-tag">Thiền Trà 11 Vị</span>
+                <div class="feedback-head">
+                    <div class="feedback-avatar">MA</div>
+                    <div class="feedback-meta">
+                        <div class="feedback-name-row">
+                            <span class="feedback-name">Nguyễn Minh Anh, 28 tuổi</span>
+                            <span class="feedback-tag">Thiền Trà 11 Vị</span>
+                        </div>
+                        <div class="feedback-sub">Hà Nội • Chuyên viên Marketing</div>
+                    </div>
                 </div>
-                <p class="feedback-text">"Mình hay thức khuya làm việc nên trước đây hay trằn trọc. Pha một ấm trà buổi tối thấy vị ngọt thanh dịu, mùi hoa cúc với lá dứa dễ chịu, uống xong nhẹ người hẳn."</p>
+                <p class="feedback-text">"Chạy deadline nhiều nên tối nào mình cũng hay bị căng đầu và ngủ chập chờn. Đổi sang một ly Thiền Trà 11 Vị ấm khoảng 9 giờ tối, vị ngọt dịu từ cỏ ngọt với táo đỏ, thoảng mùi hoa cúc và lá dứa giúp mình thư giãn hẳn."</p>
             </div>
 
             <div class="feedback-card">
-                <div class="feedback-top">
-                    <strong>Hoàng Nam</strong>
-                    <span class="feedback-tag">Thiền Trà Lục Vị</span>
+                <div class="feedback-head">
+                    <div class="feedback-avatar">TL</div>
+                    <div class="feedback-meta">
+                        <div class="feedback-name-row">
+                            <span class="feedback-name">Trần Thanh Loan, 34 tuổi</span>
+                            <span class="feedback-tag">Thiền Trà Lục Vị</span>
+                        </div>
+                        <div class="feedback-sub">TP. Hồ Chí Minh • Quản lý nhân sự</div>
+                    </div>
                 </div>
-                <p class="feedback-text">"Trà dễ uống, không bị gắt cổ hay quá ngọt. Buổi sáng hoặc đầu giờ chiều làm việc thay một ly trà ấm giúp tỉnh táo nhẹ nhàng mà không bị cồn cào như cà phê."</p>
+                <p class="feedback-text">"Trước đây tầm 3 giờ chiều là mình hay mua trà sữa hoặc uống cà phê nhưng dễ bị hồi hộp, mất ngủ đêm. Từ lúc chuyển qua Thiền Trà Lục Vị, nước vàng óng, vị thanh nhẹ, uống đều mỗi ngày thấy người nhẹ nhõm hơn hẳn."</p>
             </div>
 
             <div class="feedback-card">
-                <div class="feedback-top">
-                    <strong>Thu Hà</strong>
-                    <span class="feedback-tag">Túi Thơm &amp; Nến Thơm</span>
+                <div class="feedback-head">
+                    <div class="feedback-avatar">PH</div>
+                    <div class="feedback-meta">
+                        <div class="feedback-name-row">
+                            <span class="feedback-name">Phạm Thu Hằng, 31 tuổi</span>
+                            <span class="feedback-tag">Thiền Trà 11 Vị</span>
+                        </div>
+                        <div class="feedback-sub">Đà Nẵng • Chủ tiệm thời trang</div>
+                    </div>
                 </div>
-                <p class="feedback-text">"Túi thơm treo tủ đồ và góc bàn làm việc tỏa mùi nhẹ nhàng, không bị nồng gắt. Tối đốt nến thơm đọc sách khoảng 30 phút thấy không gian thư giãn hơn nhiều."</p>
+                <p class="feedback-text">"Ngồi máy tính và kiểm hàng cả ngày mắt dễ mỏi, người hay uể oải. Trà không bị ngái thảo mộc như nhiều loại mình từng thử, có chút chua thanh nhẹ của tắc vàng nên uống rất dễ vào."</p>
+            </div>
+
+            <div class="feedback-card">
+                <div class="feedback-head">
+                    <div class="feedback-avatar">HT</div>
+                    <div class="feedback-meta">
+                        <div class="feedback-name-row">
+                            <span class="feedback-name">Hoàng Thị Thảo, 37 tuổi</span>
+                            <span class="feedback-tag">Thiền Trà Lục Vị</span>
+                        </div>
+                        <div class="feedback-sub">Hải Phòng • Kế toán doanh nghiệp</div>
+                    </div>
+                </div>
+                <p class="feedback-text">"Mùa quyết toán ngồi bàn làm việc liên tục, mình đặt sẵn set túi trà ở văn phòng để pha thay nước ngọt. Hương hoa nhài với kỷ tử, táo đỏ hài hòa, giữ ấm bụng tốt mà không bị ngọt gắt."</p>
+            </div>
+
+            <div class="feedback-card">
+                <div class="feedback-head">
+                    <div class="feedback-avatar">VL</div>
+                    <div class="feedback-meta">
+                        <div class="feedback-name-row">
+                            <span class="feedback-name">Vũ Khánh Ly, 26 tuổi</span>
+                            <span class="feedback-tag">Thiền Trà 11 Vị</span>
+                        </div>
+                        <div class="feedback-sub">Hà Nội • Designer tự do</div>
+                    </div>
+                </div>
+                <p class="feedback-text">"Mình thích nhất là nguyên liệu nhìn rõ ràng, hoa trái khô sạch sẽ, pha ra thơm dịu chứ không nồng mùi hương liệu. Buổi tối gác máy tính, pha một bình trà nhỏ là có khoảng lặng để nghỉ ngơi."</p>
+            </div>
+
+            <div class="feedback-card">
+                <div class="feedback-head">
+                    <div class="feedback-avatar">ĐM</div>
+                    <div class="feedback-meta">
+                        <div class="feedback-name-row">
+                            <span class="feedback-name">Đỗ Ngọc Mai, 39 tuổi</span>
+                            <span class="feedback-tag">Thiền Trà 11 Vị</span>
+                        </div>
+                        <div class="feedback-sub">Bình Dương • Giảng viên</div>
+                    </div>
+                </div>
+                <p class="feedback-text">"Nói nhiều và thức soạn bài khuya nên mình rất chú trọng giữ cổ họng và giấc ngủ. Duy trì uống trà thảo mộc đều đặn thấy dễ chịu, sáng dậy tỉnh táo hơn, mình còn mua thêm làm quà tặng chị em đồng nghiệp."</p>
             </div>
         </div>
     </section>
@@ -426,8 +493,15 @@
 
             document.querySelectorAll('.slider').forEach(function(slider) {
                 const key = slider.getAttribute('data-product');
-                const slideImgs = slider.querySelectorAll('.slide-img');
+                const slideImgs = Array.from(slider.querySelectorAll('.slide-img'));
                 if (!slideImgs.length) return;
+
+                // Nạp sẵn các ảnh để chuyển nhanh trên điện thoại
+                slideImgs.forEach(function(img) {
+                    if (img.complete) return;
+                    const pre = new Image();
+                    pre.src = img.getAttribute('src');
+                });
 
                 let currentIdx = 0;
                 const counterEl = slider.querySelector('.img-counter');
@@ -436,10 +510,19 @@
                 const nextBtn = slider.querySelector('.next');
                 const thumbs = document.querySelectorAll('[data-thumbs="' + key + '"] .thumb-btn');
 
+                function resetTransforms() {
+                    slideImgs.forEach(function(img) {
+                        img.style.transform = 'translateX(0)';
+                        img.style.opacity = '1';
+                    });
+                }
+
                 function showImage(newIdx) {
                     currentIdx = (newIdx + slideImgs.length) % slideImgs.length;
                     slideImgs.forEach(function(img, i) {
                         img.style.display = (i === currentIdx) ? 'block' : 'none';
+                        img.style.transform = 'translateX(0)';
+                        img.style.opacity = '1';
                     });
                     if (counterEl) {
                         counterEl.textContent = (currentIdx + 1) + ' / ' + slideImgs.length;
@@ -482,28 +565,71 @@
                     });
                 });
 
-                // Hỗ trợ kéo lướt ngang (swipe) trên màn hình điện thoại
+                // Vuốt nhanh & mượt trên điện thoại
                 let touchStartX = 0;
                 let touchStartY = 0;
+                let swipeTriggered = false;
+                let horizontalLocked = false;
 
                 slider.addEventListener('touchstart', function(e) {
                     if (!e.touches || e.touches.length !== 1) return;
                     touchStartX = e.touches[0].clientX;
                     touchStartY = e.touches[0].clientY;
+                    swipeTriggered = false;
+                    horizontalLocked = false;
                 }, { passive: true });
 
-                slider.addEventListener('touchend', function(e) {
-                    if (!e.changedTouches || e.changedTouches.length !== 1) return;
-                    const deltaX = e.changedTouches[0].clientX - touchStartX;
-                    const deltaY = e.changedTouches[0].clientY - touchStartY;
-                    if (Math.abs(deltaX) > 35 && Math.abs(deltaX) > Math.abs(deltaY)) {
-                        if (deltaX < 0) {
-                            showImage(currentIdx + 1);
-                        } else {
-                            showImage(currentIdx - 1);
+                slider.addEventListener('touchmove', function(e) {
+                    if (!e.touches || e.touches.length !== 1 || swipeTriggered) return;
+                    const deltaX = e.touches[0].clientX - touchStartX;
+                    const deltaY = e.touches[0].clientY - touchStartY;
+
+                    if (!horizontalLocked) {
+                        if (Math.abs(deltaX) > 10 && Math.abs(deltaX) > Math.abs(deltaY) * 1.2) {
+                            horizontalLocked = true;
+                        } else if (Math.abs(deltaY) > 10) {
+                            return;
                         }
                     }
+
+                    if (horizontalLocked) {
+                        e.preventDefault();
+                        const activeImg = slideImgs[currentIdx];
+                        if (activeImg) {
+                            const clampedOffset = Math.max(-90, Math.min(90, deltaX * 0.55));
+                            activeImg.style.transform = 'translateX(' + clampedOffset + 'px)';
+                            activeImg.style.opacity = String(Math.max(0.65, 1 - Math.abs(deltaX) / 260));
+                        }
+
+                        // Chuyển ngay khi lướt qua 22px để cảm giác nhanh nhạy trên điện thoại
+                        if (Math.abs(deltaX) >= 22) {
+                            swipeTriggered = true;
+                            if (deltaX < 0) {
+                                showImage(currentIdx + 1);
+                            } else {
+                                showImage(currentIdx - 1);
+                            }
+                        }
+                    }
+                }, { passive: false });
+
+                slider.addEventListener('touchend', function(e) {
+                    if (!swipeTriggered && e.changedTouches && e.changedTouches.length === 1) {
+                        const deltaX = e.changedTouches[0].clientX - touchStartX;
+                        const deltaY = e.changedTouches[0].clientY - touchStartY;
+                        if (Math.abs(deltaX) >= 18 && Math.abs(deltaX) > Math.abs(deltaY)) {
+                            if (deltaX < 0) {
+                                showImage(currentIdx + 1);
+                            } else {
+                                showImage(currentIdx - 1);
+                            }
+                            return;
+                        }
+                    }
+                    resetTransforms();
                 }, { passive: true });
+
+                slider.addEventListener('touchcancel', resetTransforms, { passive: true });
             });
 
             const modal = document.getElementById('productModal');
@@ -568,7 +694,7 @@
         })();
     </script>
 
-    <!-- Thư viện đọc PDF và đồng bộ số trang -->
+    <!-- Thư viện đọc PDF độ phân giải cao và đồng bộ số trang -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 
     <script>
@@ -614,17 +740,21 @@
                 isRendering = true;
                 try {
                     const page = await pdfDoc.getPage(clamped);
-                    const containerWidth = bookContainer ? Math.min(bookContainer.clientWidth - 20, 760) : 640;
-                    const safeWidth = Math.max(260, containerWidth);
+                    const containerWidth = bookContainer ? Math.min(bookContainer.clientWidth - 16, 820) : 680;
+                    const displayWidth = Math.max(280, containerWidth);
                     const unscaledViewport = page.getViewport({ scale: 1 });
-                    const scale = safeWidth / unscaledViewport.width;
-                    const viewport = page.getViewport({ scale: scale });
+
+                    // Tăng độ nét trên điện thoại bằng cách render ở độ phân giải cao (tối thiểu 2.2x chiều rộng hiển thị)
+                    const dpr = Math.min(3, Math.max(2.2, window.devicePixelRatio || 2));
+                    const renderScale = (displayWidth / unscaledViewport.width) * dpr;
+                    const viewport = page.getViewport({ scale: renderScale });
 
                     const canvas = document.createElement('canvas');
-                    const ctx = canvas.getContext('2d');
+                    const ctx = canvas.getContext('2d', { alpha: false });
                     canvas.width = Math.round(viewport.width);
                     canvas.height = Math.round(viewport.height);
-                    canvas.style.maxWidth = '100%';
+                    canvas.style.width = '100%';
+                    canvas.style.maxWidth = displayWidth + 'px';
                     canvas.style.height = 'auto';
                     canvas.style.display = 'block';
                     canvas.style.background = '#fffdf9';
@@ -633,7 +763,8 @@
 
                     await page.render({
                         canvasContext: ctx,
-                        viewport: viewport
+                        viewport: viewport,
+                        intent: 'display'
                     }).promise;
 
                     if (bookContainer) {
